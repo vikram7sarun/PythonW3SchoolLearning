@@ -2,6 +2,7 @@ thislist = ["apple", "banana", "cherry","orange", "kiwi", "mango"]
 thislist.remove("banana")
 print(thislist)
 
+
 thislist.pop(1)
 print(thislist)
 
