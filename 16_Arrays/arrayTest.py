@@ -12,4 +12,4 @@ for x in cars:
 cars.append("Honda")
 print(cars)
 print(cars.pop(1))
-print(cars.remove("Volvo"))
+# print(cars.remove("Volvo"))

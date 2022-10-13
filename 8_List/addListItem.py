@@ -1,8 +1,17 @@
+
 thislist = ["apple", "banana", "cherry"]
+
+#---------------------Append-----------------------
+
 thislist.append("orange")
-print(thislist)
+print("Append Output :",thislist)
+
+#---------------------Insert-----------------------
+
 thislist.insert(1, "Blueberry")
-print(thislist)
+print("Insert Output :",thislist)
+
+#---------------------Extend-----------------------
 
 thislist = ["apple", "banana", "cherry"]
 tropical = ["mango", "pineapple", "papaya"]

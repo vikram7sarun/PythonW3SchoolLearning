@@ -1,3 +1,5 @@
+
+
 age = 36
 txt = "My name is John, and I am {}"
 print(txt.format(age))
@@ -13,3 +15,7 @@ itemno = 567
 price = 49.95
 myorder = "I want to pay {2} dollars for {0} pieces of item {1}."
 print(myorder.format(quantity, itemno, price))
+
+myorder = "I want to pay {quantity} dollars for {itemno} pieces of item {price}."
+print(myorder.format(quantity=2, itemno=10, price=51))
+

@@ -35,7 +35,7 @@ def unknown_product(**kwargs: Any) -> None:
 
 unknown_product(name="Pizza",price=3.99, topping="Olives", extra_chees=True)
 
-#------------------------------Compbine args and kwargs------------------------------
+#------------------------------Combine args and kwargs------------------------------
 
 def invoice(product: str, *args, **kwargs) -> None:
     print(product)
@@ -44,7 +44,7 @@ def invoice(product: str, *args, **kwargs) -> None:
 
 invoice("Sneakers","black","white",brand="Nike",category="Air Jordans", price=899.99, insock=False)
 
-
+#----------------------------------------------------------------------------------------
 
 
 

@@ -9,5 +9,5 @@ thislist = ["apple", "banana", "cherry"]
 print(thislist)
 print(len(thislist))
 
-list1 = ["abc", 34, True, 40, "male"]
+list1 = ["abc", 34, True, 40.3, "male"]
 print(list1)

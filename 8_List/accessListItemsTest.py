@@ -6,5 +6,10 @@ print(thislist[:4])
 print(thislist[2:])
 print(thislist[-4:-1])
 
-if "apple" in thislist:
-  print("Yes, 'apple' is in the fruits list")
+user_input = input("Please enter the fruit name :  ")
+
+if user_input in thislist:
+  print(f"Yes, {user_input} is in the fruits list")
+else:
+  print(f"No The {user_input} is not preseted in the list")
+

@@ -1,4 +1,4 @@
-thistuple = ("apple", "banana", "cherry")
+thistuple = ("apple", "banana", "cherry",'apple')
 for x in thistuple:
   print(x)
 
