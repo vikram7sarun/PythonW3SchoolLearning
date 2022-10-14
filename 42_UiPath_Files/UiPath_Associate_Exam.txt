@@ -1,0 +1,103 @@
+
+--------------------------------------------------------------------------------Uipath_Associate_Exam--------------------------------------------------------------------------------------------------
+
+Exam Domains/Exam Sections
+The UiPath RPA Associate v1.0 Exam contains the following exam sections:
+• Robotic Process Automation (RPA) Fundamentals
+• UiPath Studio Overview
+• UiPath Studio – Variables and Arguments
+• UiPath Studio – Classic Selectors
+• UiPath Studio – Control Flow
+• UiPath Studio – Data Manipulation
+• UiPath Automation Concepts and Techniques
+• UiPath Orchestrator Overview
+
+-----------------------------------------------------------------------------------
+wnd - Windows
+html - Web page
+ctrl - Control
+webctrl - Webpage Control
+java - Java Application Control
+
+<wnd app='notepad.exe' cls='Notepad' title='Untitled - Notepad' />    -> Root
+<wnd aaname='Horizontal' cls='Edit' />
+<ctrl name='Text Editor' role='editable text' />                      -> Actual Selector
+
+
+
+
+<html app='chrome.exe' title='Pre-Open Market, Stock Market Watch - NSE India' />
+<webctrl tag='TABLE' />
+<webctrl tableCol='2' tableRow='2' tag='TD' />
+
+
+
+<html app='chrome.exe' title='Pre-Open Market, Stock Market Watch - NSE India' />
+<webctrl tag='TABLE' />
+<webctrl tableCol='2' tableRow='3' tag='TD' />
+
+
+
+my
+
+
+
+<webctrl parentid='leftmenuinnerinner' tag='A' />
+
+
+<html app='chrome.exe' title='React useCallback Hook' />
+<webctrl aaname='React Intro' parentid='leftmenuinnerinner' tag='A' />
+
+
+
+
+1.A developer successfully published a package from Studio 2021.10 to an Orchestrator 2021.10 shared folder. The developer did not make any changes to the project and published the package again successfully.
+What automatically happens in Orchestrator?
+
+2.A developer wants to build a project which iterates through multiple digital PDF invoice files to retrieve the Total Value. Assuming all the files have the same structure, which action should be performed based on best practices?
+
+3.What describes the relationship between UiPath Robots and UiPath Orchestrator?
+
+4.What is a characteristic of an Orchestrator Asset?
+
+5.What happens if a process is started from an on-premise UiPath Orchestrator?
+
+6.In order to ensure a robust and stable automation, which selector should be modified based on best practices?
+
+7.A developer has created a variable of type String called Levels. The developer has assigned the value, "1, 2, 3, 4, 5, 6", to the variable. What is the resulting data type for the expression Levels.Split(","c)(1)?
+
+8.A developer has created a process for a local university that wants to report on student grade levels for different courses. The developer has created the following workflow:
+
+9.In UiPath Studio, which feature is provided by GIT version control?
+
+10.A developer wants to remove the company name from the "UiPath Certification" string. Which string method will return "Certification"?
+
+11.What describes the relationship between UiPath Robots and UiPath Orchestrator?
+
+
+
+
+
+Date           row("Date").ToString
+Employee Name  row("Employee Name").ToString
+License Plate  row("License Plate").ToString
+Car            row("Car").ToString
+
+
+
+
+https://cloud.uipath.com/fmrxnqhdbl/DefaultTenant/orchestrator_​/odata​/Folders
+
+
+
+
+
+
+
+
+
+
+
+
+
+

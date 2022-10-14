@@ -1,0 +1,462 @@
+*********************Mock Interview***********************
+
+1.What are all certification have you completed?
+  - UiPath RPA Foundation
+  - UiPath RPA Developer
+  - One External Certificate
+-----------------------------------
+2.What is RPA Techonology?
+
+-----------------------------------
+3.Different Kind's of Workflow?
+-Sequence
+-Flow Chart
+-State Machine
+
+-----------------------------------
+4.Difference between Attended and Unattended Robot?
+Attended Bot:
+    - Human Inputs are required to complete the work.
+	- You can start and run from UiPath Assistance.
+	- You do not schedule it from orchestrator.
+	- Cannot work on lock screen.
+Unattended Bot -
+    - No human Inputs are required.
+	- Runs in un attended way in virtual Env or VDI.
+	- Can be scheduled from orchestrator.
+-----------------------------------
+5.Variable vs Argument in UiPath?
+ Variable --  Transfer the value within the workflow
+ Mostly used - String, Int32, Boolean, Generic Value , array, data type,List,Dictionary etc.
+Argument  -- Transfer the values from one workflow to other.
+3 Directions in argunments:
+ - IN , OUT , IN-OUT
+-----------------------------------
+6.Project Explination?
+
+-----------------------------------
+7.Exception Handling & Scenarios Questions?
+-> Exception handling deals with handling errors while execution of activities.
+Can be handled using:
+  - Try Catch,
+  - Throw  - Explicitly throw an exception, maily used for business rule exceptionbut it can throw any exception.,User can throw his own exception in detail.
+  - ReThrow - This will rethrow the exception which is already occured. Rethrow from child to parent. - Parent can handle all type of Exception.
+  - Terminate Workflow
+  - Contine on Error - make it true to run the automation if the error occured on one flow.If we have multiple step in a container we can set the true value in container level.
+  - Using Global Exception Handler - 
+      * Only One GH can have in the workflow,
+	  * Any exception is not handled by try catch then GH can handle that.
+	  2 predefined arguments
+	    1)errorInfo
+		2)result	
+-----------------------------------
+8.How to handle url changes?(If the url changed how would you handle this situation)
+- We can store all the dynamic prop in Asset. 
+-----------------------------------
+9.How to make things configurable?
+-Using Config file and Asset
+-----------------------------------
+10.Assets and its kind?
+Int32,text,Credential and Boolean.
+-----------------------------------
+11.Orchestrator and its need?
+Main Capabilities of Orchestrator:
+Configuration -Orchestrator maintains and delivers Robot environments and processes configuration.
+Provisioning - Creating and maintaining the connection between Robots and web application is also a capability of orchestrator.
+Monitoring - It also keeps track of Robot identification data and maintains user permissions.
+Queues - One important feature of orchestrator is to ensure the queues and queue items management.
+Logging - Stores and indexes the logs to an SQL database and/or Elasticsearch.
+Inter-connectivity - Orchestrator acts as the centralized point of communication for 3rd party solutions or applications
+Deployment - It assures the correct delivery of the package versions to the assigned Robots for execution
+-----------------------------------
+12.How to make selector dynamic?
+-Using Wildcard Character
+-? and *
+-----------------------------------
+13.Difference between Basic and desktop recorder?
+Basic - Use Full selector Selector
+      - No Attached browser
+Desktop - Use partial selector and by default use attach browser.
+-----------------------------------
+14.How we handled credential Update and where do we story and how many ways?
+ - Credential can be stored in safe location such as orchestrator assets or Cyberarc safe.
+-----------------------------------
+16. Type of asset to hold username and password?
+- Credential
+-----------------------------------
+17.How do we connect UiPath with database?
+-Database activity settings required and return type and db used.
+-----------------------------------
+18.How do we scrap data from webpage?
+-Using Screen Scrap
+     - Full Text
+	 - Native
+	 - OCR
+-Using Data Scrap
+     - Extract Structured Data
+-----------------------------------
+19. How do we read data from excel?
+Using Excel appliaction scope read range or workbook read range.
+-----------------------------------
+20.Difference between Excel and Workbook activity?
+Excel Application Scope - Excel application need to be installed.
+                          We can do the operation even the excel is opened or not.
+						  It have provision of reading Pivots,Cell,Color,macros and many other activities are available.
+                          Always use excel activity for more activity.
+Workbook Activity - Excel application is not required.
+                    Corresponding Excel file should be Closed before triggering. 
+					Only Limited set of Activities are available.
+                    use workbook only if the excel is not intalled on the machine.
+-----------------------------------
+21.Input method available in Ui path?
+-Default, Simulate Type , Simulate Click difference between them?
+-----------------------------------
+22.Output Methods availble in UiPath?
+-Fulltext ,native and OCR.
+-----------------------------------
+23. How to select item from dropdown?
+-Using Select Item
+-Expand the dropdown and use click activity.
+-----------------------------------
+24. Activity used to Send email in UiPath?
+- Outlook activitiy
+- Using Imap
+- Using SMTP
+-----------------------------------
+26. Step to publish a project?
+- Develop 
+- Publish
+- Select a package, Version and publish to and pusblish it.
+-----------------------------------
+27. What is document understanding and how it is different from traditional pdf extract?
+
+-----------------------------------
+28. Prerequisites to start a DU project?
+package - Ui.IntelligentOCR activity
+          Omnipage activity.
+		  ml activity
+
+-----------------------------------
+29. How does the document understanding work?
+
+-----------------------------------
+30. Type of Documnets made throughout Project?
+  - Documents Preperad 
+  - Use of each document
+  - Who will create and why it is important.
+  
+  Keystrock,DDD,
+-----------------------------------
+31. What is PDD and SDD and difference?
+PDD - Process Design Document - BA will Create
+SDD - Solution Design Document - RPA Dev will create
+
+-----------------------------------
+32. What is Anchor Base Activity and when to use the?
+
+-----------------------------------
+33. Download attachment from Outlook?
+
+-----------------------------------
+34. Get Attachment from Individual Mail and how would robot know which email has an attachments?
+
+-----------------------------------
+35. Difference Between Stop and Kill in Ui Path Orchestrator?
+
+-----------------------------------
+36. RE Framework and Benefits?
+
+-----------------------------------
+37. System and Business Exception Difference?
+
+-----------------------------------
+38. Handling Dynamic PopUp?
+ - Using Parallel activity.
+-----------------------------------
+39. Scheduling in UiPath?
+  -Time Trigger vs Queue Trigger?
+  -Advance Scheduling in Orchestrator?
+  
+-----------------------------------
+40. State in RE Framework? Total State Available? and Exception can occurer?
+
+-----------------------------------
+41. Activity used to read a files from a folder?
+GetFolder or GetFile
+Directory.getFile - in assign
+  - get the list of String
+-----------------------------------
+42. Iterate datatable in UiPath
+for Each , while and do while
+
+-----------------------------------
+43. What are data services and why do we need it?
+
+-----------------------------------
+44.How does SQL differ from data services?
+
+-----------------------------------
+45.Steps required to connect to GIT from studio?
+
+-----------------------------------
+46. How does an app connect to an Uipath Orchestrator? Ui Path App studio?
+
+-----------------------------------
+47. What are the new features in 2021.4?
+
+-----------------------------------
+48. RPA Lifecycle? stages?
+
+-----------------------------------
+49. Full Selector and partial Selector and how to make selector dynamic?
+
+-----------------------------------
+50. How to handle file not found in robot?
+
+-----------------------------------
+51. Activity available for Exception handling? and What is AES 256?
+
+-----------------------------------
+52 How do we config excel in UiPath and what is output?
+
+-----------------------------------
+53. What are data tables and how to filter them?
+
+-----------------------------------
+54. How do we apply filters when reading the email.
+
+-----------------------------------
+55. How robot will read only the top emails from the mailbox.
+
+-----------------------------------
+56. What machenism is used to read the pdf data?
+
+-----------------------------------
+57. Web element has been used as an anchor while extracting the data from the files.
+
+-----------------------------------
+58. Performer and Dispatcher?
+
+-----------------------------------
+59. Activities used to add data to the queue
+
+-----------------------------------
+60.What happens in the transactions in the queue which encounters an System Exception while processing?
+
+-----------------------------------
+61. What happens when more and more inprogress items are available in the queue?How to handle such scenario?
+
+-----------------------------------
+62. Global Exception Handler? Advantage?
+
+-----------------------------------
+63. How to handle password chnage for every 30 days?
+
+----------------------------------
+64. How to schedule the process for certain days and time?
+
+----------------------------------
+65. What is Queue trigger? How to set it ?
+
+----------------------------------
+66. How to Chnage the file name while downloading?
+
+----------------------------------
+67. How to DB connection is made and what if we face some issue in DB?
+
+----------------------------------
+68. How to get value one by one from dropdown?
+- By Using Find Children and get Attribute
+
+Find Children Will give a list of enumarable list of Ui Elements.  
+----------------------------------
+69. How do we connect UI path with SNOW?
+
+----------------------------------
+70. How you handle post production support?
+
+----------------------------------
+71. How should be the project Explain?
+
+ - Explain Entire project architecture.
+ - Explain above trigger and schedule details.
+ - Explain about benifits of this automation.
+----------------------------------
+72. RPA Team Orchitecture?
+
+ - RPA Project manager
+ - RPA Infrastructure Engineer
+ - RPA Solution Architect
+ - RPA Developer
+ 
+ - RPA Change manager
+ - RPA Business Analyst
+ - RPA Supervisor 
+ - RPA Service Support.
+---------------------------------
+73. Error vs Exception?
+
+--------------------------------
+74. Different Types of Exception:
+System.Exception can handle all type of exception.
+1)NullReferenceException.
+2)Index Out Of Range Exception.
+3)Argument Exception.
+4)Selector Not Found Exception.
+5)Image Operation Exception.
+6)Text Not Found Exception
+7)Application Exception.
+--------------------------------
+Business Rule Exception Example:
+
+1.Input File not present.
+2.Email Not Received.
+3.Limit/ Threshold.
+4.Credentials Expired.
+5.Cash Withdrawal Scenario.
+6.Input Data Validation.
+--------------------------------
+75.Activity Available for Exception handling?
+Try , Catch, Throw, Rethrow, Finally
+--------------------------------
+76. Type of Transactions?
+1)Linear - Steps of the process perform only once -- Init -> Get Data -> Process Data -> END
+2)Iterative - Steps of the process perform multiple time --  Init -> Get Data -> Process Data -> END 
+3)Transaction - Get the data one by one RE Framework comes into picture. --> Init -> Get Data === Process Data -> End. 
+--------------------------------
+77. Fetch N row from data table:
+  ->  dt_Modified = opDt.AsEnumerable().Take(2).CopyToDataTable()
+--------------------------------
+78. Find MAX and Avg Value:
+MAX Value:
+myMax_Value = dt_Sample.AsEnumerable().Max(Function(row) cint(row(“ColumnName”)))
+
+AVERAGE Value:
+myAverageValue = dt_Sample.AsEnumerable().Average(Function(row) cint(row(“ColumnName”)))
+
+--------------------------------
+79.How to Know if the element is visible or not in Page?
+- In UI Explorer -> Property Explorer -> 
+  Visiblity = 1 and relative Visibility = True -> Element is Visible
+  Visiblity = 0 and relative Visibility = False -> Element is Not Visible
+  Use getAttribute to fetch the tag and fine the element visibility or not
+---------------------------------
+80.How to know if the lement is checked or not for any checkbox?
+- In UI Explorer -> Property Explorer ->
+  Checked = 0 -> Not Checked
+  Checked = 1 -> Checked
+---------------------------------
+81.Does Finally will execute if we throw or rethrow the exception?
+- If we use throw or rethrow the exception finally will not be executed.
+---------------------------------
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,133 @@
+Activities UI path
+-----------------------
+Data Manipulation:
+
+Date and Time
+
+DateTime.Now
+DateTime.Now.Month or Date
+DateTime.Now.Date.ToString("MMM/dd")
+Convert.ToDateTime("strDateTime").ToString("MM/dd")
+"String Converted to Date Time : " +DateTime.ParseExact(dtAsString,"dd/MM/yyyy",System.Globalization.CultureInfo.InvariantCulture).ToString
+"TwoDaysAhead : "+DateTime.Now.AddDays(2).ToString
+"TwoDaysBack : "+DateTime.Now.AddDays(-2).ToString
+"Date With Time : " +DateTime.Now.ToString(“MMM-dd-yyyy hh:mm:ss tt”,System.Globalization.CultureInfo.InvariantCulture)
+"ToLongDateString : " +DateTime.Now.ToLongDateString
+"ToLongTimeString : " +DateTime.Now.ToLongTimeString
+"ToShortDateString : "+DateTime.Now.ToShortDateString
+"ToShortDateString : "+DateTime.Now.ToShortDateString
+"CurrentDateAndTime : " +DateTime.Now.ToString
+DateTime.Now.ToString("dd:MM:yyyy hh:mm:ss:fff")
+
+------------------
+String Split: S ="27-Aug-2021"
+
+Split       - Split(S,"-") , S.Split("-",ToCharArray) , S.Split("-"c)
+DoubleSplit - Split(Split(S,"-"),".")(1)
+Substring   - S.Substring(s.length-1).split("c"c)(0)
+Trim        - S.Trim , TrimEnd , TrimStart
+Replace     - S.Replace("-",".")
+Remove      - S.Remove(0,5)
+Insert      - S.Insert(0,"100")
+Index Of    - S.indexOf("A")
+Equals      - String.Equals(I,0) True or false
+LastIndexOf - S.Substring(s.LastIndexOf("-")+1)
+------------------------
+Data Table:
+
+LookupDatatable -> Fecth Single Row based on Column name
+OutputDatatable  -> get value from excel and show in data format
+ReadRange  -> "" fecth all cells , "A1: B3" fetch only given cells
+WriteRange -> 
+Sort DataTable - prop - Columnname order - Asc or dec
+BuildDataTable -> Used to Create Data table rows and Column
+mergeDatatableActivity:
+Missing Schema Action - Common match id will be ignored
+GenerateDT Activity - convert Unstructured datatable to proper
+RemoveDuplicateRow - Remove rows with same values
+SetOrdinalActivity
+GetExcelSheetNames
+json to DT - > prop -> system.Collection.generic
+                       Dictionery<System.string,System.object>
+
+DT to JSON - Newtonsoft.Josn.JsonConvert.Serialization(dt )
+
+
+
+
+----------------------------------------------------------------------------------------
+
+For PDF Handling:
+
+ReadPdfFile -> WriteText
+ReadPDFwith OCR -> Tesseract OCR
+Dynamic Values:
+  * Anchor Base
+   * Find Element
+  * Find Image
+
+collectpdfFile = Directory.GetFile("")
+
+send Hotkeys
+----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

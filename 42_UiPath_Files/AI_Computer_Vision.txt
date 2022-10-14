@@ -1,0 +1,67 @@
+*********AI Computer Vision*********
+
+Virtual Machine Automation - Can be done using image and OCR
+
+--> Feature visually Identifies all the elements,rather then relaying on selectors or images.
+--> Enables human like recoginition of user interface.
+--> This user AI,OCR,Text Fuzzy-matching, and an anchoring System to tie it all together.
+Generally Used in:
+1) Virtual Desktop Environments(Citrix,VMware,VNC and Windows Remote Desktop)
+
+Download Computer vision Package if it is not available
+ -> All the CV Activity should happens inside CV Screen Scope - Used to interact with Server using API key and perform activity in Indicate on Screen.
+ -> URL and API key should be added in Properties tab
+     * URL     - "https://cv.uipath.com"
+	 * Api Key - Cloud.uipath.com -> Admin -> Licenses -> Robots and Services -> Copy API key under computer vision.
+
+Activity:
+ - Replace Tesseract OCR.
+ - CV Highlight -Input Box
+
+We can do cv click, cv type into 
+************************************ 	
+Test Bench - Used to do testing quickly in test bench so we don't wanna touch the mail file.Once it is working in test bench we can move it to mail file.
+
+--------------------------------------
+CV Activities
+
+1. CV Screen Scope
+2. CV Check
+3. CV Click
+4. CV Dropdown Select
+5. CV Element Exist
+6. CV Extract table
+7. CV Get Text
+8. CV Highlight
+9. CV Hover
+10.CV Referesh
+11.CV Type Into
+
+-----------------------------------------
+Challenges with using OCR and Image Automation
+
+OCR - Data is not in proper format so user wanna write code to convert improper data to proper data.
+Image - Relay on background color and font.If it is changes we gonna face problem.
+
+After 2020.10 version - CV refresh by default taking care in property
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

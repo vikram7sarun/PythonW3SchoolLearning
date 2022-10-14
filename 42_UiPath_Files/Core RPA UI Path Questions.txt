@@ -1,0 +1,257 @@
+***************************Core RPA UI Path Questions**************************
+1.What is RPA(Robotic Process Automation):
+   -  Robotic Process Automation > Computer based robot > Mimics > Human Action > Business Process.
+   eg. Payroll processing , Customer order processing , Automatic ticket and incident processing.
+----------------------------------------------
+2. RPA Life Cycle?
+  - Phases using which the bot is developed from scratch.
+  4 Phases:
+  1)Analysis  - Done by Business Team,Business Analyst and Solution Architect.
+  2)Bot Development.
+  3)Testing
+  4)Deployment and maintanence.
+----------------------------------------------
+3. Components of Ui Path?
+ 1)UiPath Studio - Platform to develop a bot
+ 2)UiPath Assistant/UiPath Robot/UiPath Agent - Platform to execute the bots
+ 3)UiPath Orchestrator - Platform to add machines,robots,manage robots,packages,Scheduling,monitoring of bots.
+----------------------------------------------
+4. Why RPA? Benefits?
+ 1)Reduce workforce and save money.
+ 2)Less Error and more accuracy.
+ 3)Less Coding Requirement
+ 4)Less Processing Time.
+ 5)Less time to develop and implement project.
+----------------------------------------------  
+5. Attended Bot:
+    - Human Inputs are required to complete the work.
+	- You can start and run from UiPath Assistance.
+	- You do not schedule it from orchestrator.
+	- Cannot work on lock screen.
+  Unattended Bot -
+    - No human Inputs are required.
+	- Runs in un attended way in virtual Env or VDI.
+	- Can be scheduled from orchestrator.
+----------------------------------------------
+6. Different ways the project can be built in Uipath:
+  1)Sequence 2)Flowchart 3)Statemachine 4)ReFramework
+----------------------------------------------
+7. Vesrion on Uipath You worked on?
+  Studio -> 2021.10.4 , 2020.10.2 ,2020.4.1 , 2019.10.1
+----------------------------------------------
+8. Different types of variables and arguments:
+  Mostly used - String, Int32, Boolean, Genericv Value , array, data type,List,Dictionary etc.
+3 Directions in argunments:
+ - IN , OUT , IN-OUT
+---------------------------------------------- 
+9. Different between Array and List:
+Array - Store Multiple values in same type. Has a fixed size.
+List  - Store collection of values that does not have fixed number of elements.
+----------------------------------------------
+10. UiPath Explorer:
+ - Advance Selector tool by UiPath, which gives option to customize your selector in more easy way.
+---------------------------------------------- 
+11. How to publish  proj in UiPath:
+1) Using Publish button. - Orchestrator
+2) %programData%\\UiPath\\Packages - locally
+----------------------------------------------
+12. How to save credentials in windows & use in UiPath? 
+-> Save the username and password in Windows Credential manager
+-> Use "Get Secure Credential" activity to fetch the user name and passwod from cm.
+--------------------------------------------- 
+13. What is Exception Handling?
+-> Exception handling deals with handling errors while execution of activities.
+Can be handled using:
+  - Try Catch,
+  - Throw
+  - ReThrow
+  - Terminate Workflow
+  - Using Global Exception Handler.
+----------------------------------------------
+14.Step Into - Used in Debug mode - use to step in to particualr workflow and see one by one.
+   Step Over - Will not Get into  any workflow
+----------------------------------------------
+15. Try  - Holdes the activity that could throw the exception.
+  Catch  - Specifies the exception type and optionally holds an activity that inform the user about found exception. 
+ Finally - Executed as always neither error occured or not
+----------------------------------------------
+16. Excel Activity
+ - Excel Appplication should be installed in your machine.
+ - All the activity should be used within Excel Application scope.
+ - You may not be able to access password protected sheets.
+ - Workflow will execute even if the excel file is opened.
+
+Workbook Activity:
+ - No need to install excel application in Machine.
+ - Excel application scope is not required.
+Drawback:
+ - If the excel is opened workflow will fail. 
+----------------------------------------------	
+17. Anchor Base Activity:
+   - A contained that searches for a UI Element by using other UI elements as anchors.This should be used when releiable selector is not available.
+----------------------------------------------
+18. Types of Robot?
+1)Attended
+2)Unattended
+3)Development - Similar to unattended robot, used for development purpose.
+4)Non production - Similar to unattended robot, used for development and testing purpose.
+----------------------------------------------
+19. How to Run a bot on different system where Ui path studio is not installed?
+- Yes its possible without Ui path studio. For that we need to install only UI path Robot(Ui Path Assistance) by Choosing Custom Setup
+- Floating robot will work accordingly.
+----------------------------------------------
+20. Thick Client:
+  - Any Aplication which is installed in local System/PC/hard Drive. 
+  To Understand this - We are automating a local application and we need to click on a button in that application.when we use selector and have seen how it can collect handful of tags and attributes.
+  
+ Thin Client:
+ - Same way is not possible while working on a application which is hosted on a server.While we try to click on that application, it may happen we may not collect all the tags and attributes.
+ for eg: Virtual Desktop env , Citrix, VMWare 
+----------------------------------------------
+21.What are thing can be automated using RPA?
+   1. Generating report from the website.
+   2. Data Entry Work.
+   3. Collection of information from pdf and ebtering into another application.
+   4. Processing ticket on requests.
+---------------------------------------------
+22. How to Convert String numeric value into integer?
+ String A=20
+ Int B = Convert.ToInt32(A)
+---------------------------------------------
+23. It can story any kind of datatype for eg string,int,date format and array.
+---------------------------------------------
+24. Create Variable in Different way:
+   In a designer -> variable panel , Ctrl + k , Right click on property panal and create varaible.
+---------------------------------------------
+25. Delay After  - The activity first executes and wait as per the mentioned time and proceed to next activity.
+    Delay Before - Before the activity execute it waits
+---------------------------------------------
+26.FindChildren Activity:
+ -> Indicate the screen from where you would like to fetch the children > Declear the output variable to hold the children -> use for each to fetch the required attribute using getAttribute activity.
+---------------------------------------------
+27. array = {10,20,30,40,50} - Var -> Int32[]
+list = New List(Of String) - Var -> List<Int32> -> Use add to collection to add data to list
+dictionary = New Dictionary(Of String,Int32) ->  Dictionary("Vikram") = 1000
+---------------------------------------------
+28. What is unified target and which testing methods does the unified target use?
+* Modern Design target Method
+ - Selector
+ - Anchor
+ - Fuzzy Selector
+ - Image
+---------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+Multi-Bot Architecture
+-------------------------------------
+
+Steps:
+
+1. Work flow should be created.
+2. Publish the workflow.to orchestrator.
+3. Application path should be common in both server.
+4. Configure 2 robots to same orchestrator url.
+5. Both robot should be configured in Orchestrator.
+6. Both Machine should be configured to Similar environment.
+7.

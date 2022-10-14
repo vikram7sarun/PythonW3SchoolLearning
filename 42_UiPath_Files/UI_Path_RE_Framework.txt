@@ -1,0 +1,236 @@
+UiPath_RE_Framework: - Developed using State Machine
+
+**************************************
+1. State              |   Invoke Workflow                             
+------------------------------------------------------------
+Initialization        |   InitAllSetting.xaml   - Config file load. (Sheet - Constatnt,Setting and Assert)
+						  KillAllProcess.xaml   - 
+                          InitAllApplications.xaml
+
+    System Exception  |  Success
+
+Get Transaction Data  |   GetTransactionData.xaml
+
+    No Data           |   Transaction data
+
+
+Process Transaction   |   Process.xaml
+                          SetTransactionStatus.xaml
+                            * RetryCurrentTransaction.xaml
+                            * TakeScreenshot.xaml
+                            * CloseAllApplication
+                            * KillAllApplication
+
+    Success   | System Exception  | Business Exception
+
+End Process           |   CloseAllApplication
+                          KillAllApplication							
+
+----------------------------------------------------------
+2.Advantage:
+
+1. Don't wanna create New Framework we can use this and create effective framework.
+2. Perform transaction Oriented Automation Process.
+3. Best Exception handling.
+4. Logging and Testing machanism is handled properly.
+5. Very simple and easy to use.
+6. Config and setting files are already defined.
+7. If we use orchestrator more better to retrive transaction.
+8. Reduce time.  
+--------------------------------
+3. Global variables - 11
+
+1. Transaction Item , 2. System Exception. 3.Business Exception 4. Transaction Number 5.Config
+6. Retry Number 7. Transaction Field2 8. Transaction Field1 9. Transaction ID 10.dt_TransactionData
+11.Consecutive System Exception.
+------------------------------------
+4. Which part Run only once in RE framework?   --> First Run Workflow - Coz config will have something next time.
+-------------------------------------
+5.Closing application Fails:
+Throw Exception - > log is printed -> kill the process
+-----------------------------------------
+6.Stop live running RE framework:
+ Orch -> Stop or Killed
+Studio -> get transaction Data -> check stop signal - true -> log -> end process
+---------------------------------------- 
+Things To do if we get the transaction data without using Orchestrator Queue
+
+1.Add Read Range Activity after init all application -> Op TransactionData
+2.Remove Should Stop Activity.
+3.Change TransactionItem = DataRow
+4.if dt_TransactionData.Rows.Count < TransactionNumber
+        Get TransactData		
+----------------------------------------
+Projects:
+Different Process:
+
+1.PI -> StocksHolding -> Trade information(Daily Data, Weekly data) ->  Excel -> Dispacher -> Performer -> Used for different Purpose
+2.PI Next Gen -> Goals(Account/Expense/) -> Retirement , Education Goal , Savings Goal.
+3.Customer Interaction -> Email Automation
+4.Trade Statement(Options,Stocks) -> Pdf Automation (Document Understanding)
+5.Pi Rembursement ->  Document Understnding and Action Center.
+
+StocksHolding Trade Retention
+-----------------------------
+Modern Design:
+
+Machine
+Robot
+Roles
+Folder
+ - User Create 
+ - Role Assign
+ - Machine Add
+
+---------------------------------------------------
+UiPath Suite of Licence:
+
+SKU's
+
+1.Robot
+2.Document Understanding
+3.AI Components
+
+UI Path Robots:
+
+1.Attented   - Works on human intervension.
+2.Unattended - Works on Automation Schedule.
+-------------------------------------------------
+shreya.dixit@atos.net kuldeep.patil@atos.net arjun.a@atos.net sudeep.salian@atos.net
+
+---------------------------------
+Hi,
+
+ I am Vikram C. From from Coimbatore.
+
+ I am working for Atos Bangalore. Currently in Bangalore
+ Totally i have 6 + years of experience into IT 
+ Worked on various automation using RAP and Programming like python and java and tools and technologies.
+ 
+ Basically i was part of centralized automation team where we provide solution to other team meambers.
+
+ With Respective to domin i have knowledge on Investment Banking,Commercial Bangaling,Retail Banking and Ecommerce and currently in Travel Domain. 
+  
+  * OBT Site Build
+  * Concur EMEA
+  * V-Payment Billback
+  * Stock holding retention 
+  * Customer Goals retention  
+  * Customer Interactions retention  
+  * PI Rembursement 
+  * Intraday Trade Statement Retention
+  * Commercial and Retail banking T24 data process
+
+Experiend on working end to end automation for various process.
+
+I am a senior RPA developer with good experience of leading a team.
+  So basically i am responsible to  Guide juniors and take care of all the process delevirables.
+
+My project Roles and Reponsibility.
+
+Gathering business requirements, analyzing key stroke and process design document and
+Identifying impact areas in advance.
+
+Designing solution design document and getting approval from BA and Architect.
+
+Closly work with Business analyst , Other team member whohover inoved in partical process automation.
+
+Developing automation solutions as per requirement and push the package to dev
+orchestrator with unit test Coverage and responsible to get code review from Architect.
+
+Responsible to maintain the process workflow in GITHub  for version Control With Proper 
+Structure like Having master - feature and release branch.
+
+Responsible for interacting with team members and different systems & modules for testing
+and ensure that there are no delays and timeliness are met and analyzing the problemsand 
+implement the processes to improve.
+
+Responsible for bug fixing (when any issue occures in UAT or Prod) and redeploying the 
+process workflow to the orchestrator with different versions.
+
+Responsible for sending the daily Progress status report at the end of the day by
+highlighting the activities and Issues.
+
+Finally of completion report, deploying solution to Dev, Pre-Production,
+ Hyper care and Go Live of Project. 
+
+I have good experience in object repository and creating many common modules.
+
+
+I also have an experienece on Doing Prod support.
+
+1. Monitoring all the Environments.
+2. Involving in patching activities
+
+
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

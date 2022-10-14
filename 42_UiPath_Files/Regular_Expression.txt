@@ -1,0 +1,139 @@
+*****************************Regex Example**************************
+
+Regular Expression can be used in two ways:
+
+1.Using Activities like - Mataches, Modify Text,Is Match,Replace,Change Type,Text to left/Right.
+2.Using actual regular expresion. - We can also use matches -> Advance option
+
+--------------------------------------------
+
+\w - Select all the words other then space.
+\W - Select opposite other then words.
+\s - Select only space
+\S - Select opposite other then space.
+
+\w{4} - Select all the words with 4 character
+\w{4,6} - Select 4 to 6 words.
+
++  - Select Preceding Character eg : Welcome+   -> Welcomeeeeeeeee
+?  - Optional   - Welcome? -> Welcom
+*  - Select all
+
+\. - Highlight the dots
+..\. - Select character before dot.
+
+|  - Pipe symbol work like a OR
+
+----------------------------------------------- 
+\d - matches all the degits all the number from 0 - 9
+\d{10} - Identify all the 10 digit numbers 
+9{2}\8 - 99 followed by 8  - 9984324343
+
+^ - (Carrot symbol)Capture the 1st word 
+       Test the Word
+	   Test the system
+
+$ - matches the end of the string.
+
+----------------------------------------------
+Look behind and Look Ahead.
+
+Look behind (?<=The Value is).*
+Look Ahead  .*(?= is the value)
+
+----------------------------------------------
+Find any Phone Number in any format:
+
+To Select below Phone Numbers
+
+\d{3}[ -]?\d{4}[ -]?\d{3}
+(\d{3})[ -]?(\d{4})[ -]?(\d{3}) - Grouping
+
+My Phone Number is 9876543210
+My Phone Number is 987 6543 210
+My Phone Number is 987 6543 210
+My Phone Number is 987-6543-211
+
+
+(\+91[ ])?(\d{3})[ -]?(\d{4})[ -]?(\d{3})
+
+My Phone Number is 9876543210
+My Phone Number is 987 6543 210
+My Phone Number is 987 6543 210
+My Phone Number is 987-6543-211
+My Phone Number is +91 123 4567 654
+
+-------------------------------------------
+
+Select Phone number which start from 9,8,7,6,5
+
+(((\+){1}91){1})?[98765]{1}[0-9]{9}
+
+My Phone Number is 9876543210
+My Phone Number is +91 987 6543 210
+My Phone Number is 237 6543 210
+My Phone Number is 987-6543-211
+My Phone Number is +91 5234567654
+My Phone Number is 6654547856
+
+-------------------------------------------
+Find any email address:
+
+Pick any kind of email address
+
+^([a-zA-Z0-9_\-\.])+@([a-zA-Z0-9_\-\.])+\.([a-zA-Z]{2,5})$
+
+vikram.c@gmail.com
+vikram4234.c@abc.com
+vik.dasd-dasd@gmail.com
+vikram-4234.C@yahoo.com
+vikram.c@outlook.com
+
+-------------------------------------------
+Find any valid url
+
+^(https:\/\/www\.|http:\/\/www\.|www\.)[a-zA-Z0-9!_\-$]+\.[a-zA-Z]{2,5}$
+
+wwwwwwww.google.com
+https://www.yahoo.com
+http://www.yahoo.com
+www.abc.in
+www.abc-adf.gov
+www.abcd_abcd.in
+www.gogle
+ww.google.com
+
+matches:
+
+https://www.yahoo.com
+http://www.yahoo.com
+www.abc.in
+www.abc-adf.gov
+www.abcd_abcd.in
+
+-----------------------------------------
+Capture a text between words
+
+Capture only name and degree
+
+(?<=I am ).*(?=\. I)|(?<= completed ).*(?=\. Now)|(?<= completed )
+
+I am Vikram. I have completed B.E Computer Science and Engineering. Now i am 
+I am Sarun. I have completed B.tech Computer Science and Engineering. Now i am 
+I am Duce. I have completed Masters of Computer Science and Engineering. Now i am 
+I am Harry. I have completed B.E Computer Science and Engineering. Now i am 
+I am Zayn. I have completed MBA 
+
+-----------------------------------------
+
+(.|\n)* - Select also next line
+
+
+
+
+
+
+
+
+
+

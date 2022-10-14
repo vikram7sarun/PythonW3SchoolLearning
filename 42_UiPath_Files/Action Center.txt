@@ -1,0 +1,138 @@
+*********************
+Action Center:
+ - Used to enhance the unattended Robot With the help og creating task.
+ - In action center it does not wait for human intervention it will do the activity and create the task and move to next activity.
+
+
+1.Go to Project Settings -> Enable Support Persistence
+
+
+Steps: For Amount Reembursement.
+1. Get Input from User 			 -> var - reAmounts
+2. Create Form Task    			 -> Should be created to do activity.
+3. Assign Task        			 -> Task can be assigned to particular user. (Different user should be created like Item -> New TaskUserAssignment(task.Id,"vikram7sarun@gmail.com") 
+                                    Type Argument -> UiPath.Persistence.Activities.Task.TaskUserAssignment)
+4. Wait for Form Task and resume -> 
+5. Get Form Task.                -> Get Task details -> And Complete task with looping and also assign task with looping
+
+Library Used:
+
+1. UiPath.FormActivityLibray
+2. UiPath.Persistence.Activity
+
+---------
+Activities:
+
+1.Create Form Task 
+2.Wait for Form Task and Resume
+3.Assign Tasks
+4.Complete Task.
+5.Get Form Task
+---------------
+Task Catalog -> Action Catalog enables automations to group actions as per business categories, thus helping the users to filter, search and prioritize actions.
+Task Action  -> With the help of task action we can take a decision and proceed accordingly.	
+
+
+
+
+----------------------------------------------------------
+
+Files and Folder Operations:
+
+Activities :
+
+Directory.GetFiles("Path of the folder")                           - To Get all the Files from Directory
+Path.GetFileName("C:\UI_PATH\Files\ApiTest.xlsx")                  - To Get File name with extension
+Path.GetFileNameWithoutExtension("C:\UI_PATH\Files\ApiTest.xlsx")  - To Get File name without Extension
+
+Move File     -> Move File from One Folder to Other
+Move Folder   -> To Move folder from one place to other
+Start Process -> Open Application or File
+Create File   -> To Create a file
+Create Folder -> To Create a folder
+RenameFile    -> To Remame the file
+RenameFolder  -> To Rename the folder
+File Exist    -> To Check the file exist or not - return boolean value
+Folder Exist  -> To Check the folder exist or not - return boolean value
+Delete File
+Delete Folder
+
+To Fetch latest File from directory.
+
+String.Join("", Directory.GetFiles(folder_path,".xlsx",SearchOption.AllDirectories).OrderByDescending(Function(d) New FileInfo(d).CreationTime).Take(1) )
+
+---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

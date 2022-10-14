@@ -1,0 +1,116 @@
+Orchestrator Setup:
+----------------------
+Once the Orchestrator is installed in the cloud:
+
+Steps:
+
+1.Login to https://cloud.uipath.com/
+2.Create Tenant -> Admin - Add Tenant(Select service based on need).
+3.Check Available licence for robot.
+4.Invite User (Check Invited User Mail box)
+   - Open New user in different browser for Comparison.
+   - Compare roles between organization Admin and New User.
+   - Assign Organization Admin Role to the Invited user and Check the difference.
+5.Open Orchestrator and Navigate to Tenant.
+6.Assign Roles to User.
+
+---------------------------------------------------------------------------------------
+
+Hi Amit,
+
+Thank you very much for offering me the position of Lead Software Engineer at Cignex. Unfortunately, I have decided not to accept the position, as it isn’t the right fit for me at this time.
+
+Thank you again for your time and I wish you all the best in finding someone suitable for the position.
+
+Thanks,
+Vikram C
+
+
+
+
+
+
+Aug 12th  Offer Released
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

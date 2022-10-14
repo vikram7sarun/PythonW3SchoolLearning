@@ -1,0 +1,198 @@
+****************UI Intractions*******************
+
+Scope - Enables you to set the scope of the UI elements in the collection. The following options are available:
+
+FIND_CHILDREN - the search includes the element's immediate children.
+FIND_DESCENDANTS - the search includes the element's descendants, including children.
+FIND_TOP_LEVEL - the search includes the order and the number of child elements.
+FIND_PROCESS - the search includes the data types for the child elements.
+FIND_THREAD - the search includes the default and fixed values for the child elements.
+
+***************************************************
+
+UI Intractions can be split into 2 actions--  Input and output actions
+Input Action  - We send data to the application to produce application eg clicking typing
+Output Action - Action which we used to take out from application. eg Copying the transaction id
+**************************************************
+Different way to intract with application:
+1. using mouse and keyboard.
+2. using background windows script.
+3. using the programming language.
+****************************************
+3 input Method;
+1.Default - We can see the mouse moving and keyboard typing.     ->  Techonolgy - Hardware Events(Keyboard and mouse) -> OS -> Application
+2.Simulate -if True -- use api to intract with thet application. ->  Directly target the application
+3.Send Windows Message. -> If True it can run in background      ->  Send Windows message -> OS -> Application
+****************************************
+Key Modifiers are available in Input Actions:
+* ctrl , shift , alt and windows
+****************************************
+Output Actions methods:
+1.Get Text Activity. 
+2.Get OCR Text Activity, 
+3.Get Full Text Activity
+****************************************
+Difference Between Screen Scraping and  Data Scraping:
+Screen Scraping - It can take data from any specific place.
+Data Scraping   - It looks for Structure data and proper form of data with proper selectors.
+
+Technologies used to extract data from UI (Screen Scraping Methods)
+1.Full Text  
+2.Native 
+3.OCR
+1. Full Text: Full Text is the default output method and it is fastest and accurate. But it cannot extract the screen coordinates of the text and it work only on desktop applications. It works in the background and also extracts the hidden text.
+
+2. Native: Native method extracts the text with its position on the screen, as well as retrieve the exact position of each word. This method doesn't allow background execution and hidden text extraction also. Native method only works with apps that are built to render text with the Graphics Device Interface (GDI).
+
+3. OCR: OCR is not 100% accurate, but can be useful to extract text that the other two methods could not, as it works with all applications including Citrix. Studio uses two OCR engines, by default: Google Tesseract and Microsoft Modi.
+****************************************
+Difference b\w getText and getFullText: -- Uses Full text scraping Method
+getText     - Will fetch the data only visible on the screen
+getFullText - Will fecth all the data on the locator. eg: any Dropdown
+****************************************
+getVisibleText - Part of Screenscraping  -- Uses Native Mathod
+Extract Text From Image                  -- Use OCR Engine Method
+****************************************
+Data Scraping - Default feature available in UiPath. Used to Extract structure data from any browser,application and Document
+ Indicate the page and select one filed and add similar filed - By default it will add the Datatable output.
+ Create Excel application scope and write range from A1 
+ Keep the website and excel sheet open
+***************************************
+Get Ancestor Activity: - To find the Information about the top partent ID
+***************************************
+getAttribute - Used to get any attribute from the page eg. Appname ,appid, PID etc.
+               One Element might have many attribute
+***************************************
+getPosition Activity: - Used to get position of particular Element - mainly used when we have same link of element in the page.so we can use this and click or dao activity.
+***************************************
+Find Element: - Wait for the Specified UI element to appear on the screen(to be in foreground) and returns it as a UiElement variable.
+***************************************
+Wait For Ready -
+None        - It does not wait 
+INTERACTIVE - It will wait for the page and particular element to be intractive
+COMPLETE    - It will wait for the Complete page to load.
+***************************************
+Element Exist Activity - It return boolan variable based on the element is exist in the page or not
+***************************************
+Wait Element Vanish Activity -Wait for the Specified UI element to disappear from the screen.
+***************************************
+On Element Appears Activity: - Check the particular element 
+****************************************
+Object Repository: - Modern Design
+ - Used to reduce the rework and time.
+ - Available only in Modern Design
+ - Studio -> Setting -> Design -> Enable 
+ - We can able to change only the locators by editing the Obj repo elements.
+ - We can also add Onj Repo to snippit and add to different projects.
+****************************************
+Explain About Classic and Modern Design Experiences:
+Modern Design - Name itself will tell us it has some advance feature.
+                For eg: Click activity should be used inside Application/Browser Activity.
+                Recorder option is different
+                Seperate activities are modern design
+                With respective to scraping Method - We have only one here DataExtraction
+****************************************
+Update All project using Object Repository:
+1. Extract the Obj Repo as  Library.
+2. Import that into Current Project in Project Explorer.
+3. Now Drag and Drop the Library Activity.
+4. Now if any changes occuring in the site. Get into corresponding library and do the necessory changes and publish it again and update again in studio.
+***************************************
+Check App State  -  We can apply the condition like if corresponding STATE or Element is not available in page do activity.
+***************************************  		
+How to Check If the check box is checked or not?
+1.Use Application or browser and navigate the browser.
+2.get Attribute - Option Check
+3.Apply if Condition if it is checked or not - Use Check and Uncheck Activity.
+***************************************
+Download Multiple Files using Table Extraction or Screen Scraping:
+***************************************
+Technology used for input methods:
+
+
+
+
+
+Modern Activities	  Classic Activities
+Check App State	      On Element Appear, On Element Vanish, On Image Appear, On Image Vanish, Wait Element Vanish, Wait Image Vanish, Find Image, Image Exists
+Check/Uncheck	      Check
+Click	              Click, Double Click Click Image, Double Click Image
+Extract Table Data	  Extract Structured Data, Get Full Text, Get Visible Text
+Get Text	          Get Text
+Go to URL	          Navigate To
+Highlight	          Highlight
+Hover	              Hover, Hover Image
+Keyboard Shortcuts	  Send Hotkey
+Navigate Browser	  Close Tab, Go Back, Go Forward, Go Home, Refresh Browser
+Select Item	          Select Item
+Take Screenshot	      Take Screenshot
+Type Into	          Type Into, Type Secure Text
+Use Application/Browser	  Open Application, Open Browser, Attach Window, Attach Browser, Element Scope, Close Window
+Start Process
+Anchor Base, Context Aware Anchor
+
+
+--------------------------------
+Questions :
+
+1.Modern Design vs Classic Design.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,113 @@
+Recordings in UI:
+--------------------------
+Capture user actions on the screen and transulate that into sequence of activity.
+Project can be modified and parametrized so you replay and reuse them.
+
+Types of Recording:
+1)Basic            - Records Desktop application with some difference, use full selector and does not use any container
+2)Desktop          - Records Desktop application with some difference, use partial selector with attach window container
+3)Web              - Record Web Application
+4)Image            - Record Visualized environment such as VNC,virtual Machine.
+5)Native Citrix    - Records Citrix environment
+6)Computer Vision  - Automatically Generate workflows that uses Computer vision Activity
+---------------------------
+Recordable - Automatic Recording  
+ - left Click - button ,checkboxes, dropdown
+ - Text Typing
+
+Non Recorable - Manual Recording
+ - Keyboard shortcuts
+ - Modifier Keys alt,ctrl
+ - Right Click
+ - Mouse Hover
+---------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

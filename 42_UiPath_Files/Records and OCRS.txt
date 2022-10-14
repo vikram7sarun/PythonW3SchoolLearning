@@ -1,0 +1,104 @@
+Common UI path:
+
+Type of recording:
+Basic, Desktop, web, Image,Native Citrix, Computer Vision
+------------------------------------
+Thick Client - Own Desktop machine, Selectors are easily available
+Thin Client -- Client Machine RDP, VM Ware, Citrix machine
+               --> Need to perform Surface automation,RDP or image automation.
+------------------------------------
+Different OCR Engine:
+1.Google Cloud Vision OCR.
+2.Microsfot Azure Computer Vision.
+3.Microsoft OCR.
+4.Tesseract OCR.
+5.Ui Path Document OCR.
+6.Ui path Screen OCR.
+7.Abbyy Cloud OCR
+8.Omni Chennel.
+9.CJK OCR.
+--------------------------------------
+
+Digital Document    - Google Cloud Vision OCR,Ui Path Document OCR.
+Scanned Document    - Google Cloud Vision OCR,Ui Path Document OCR.
+Scanned Handwritten - Google Cloud Vision OCR,Ui Path Document OCR.
+Digital Photo       - Google Cloud Vision OCR,Ui Path Document OCR,Microsoft,Omni Channel,Abbay
+Handwritten Pjoto   - Google Cloud Vision OCR,Ui Path Document OCR.
+
+
+-------------------------------------
+Output Variable type of OCR - IEnumerable<KeyValuePair<Rectangle,String>>
+
+
+-------------------------------------
+default publish time out - 30 seconds
+-------------------------------------
+log line - 9999 default - 2000
+-------------------------------------
+
+
+Try
+  Try 
+     Activity[salary of emp]
+	 if salary <=5000                          
+	    Then                                 else
+		Exception                            Message salary is good
+		throw ("User defined Exception")
+		rethrow(new "Business Rule Exception")
+ catch 
+       exception
+ finally
+
+catch
+     exception
+finally
+
+********************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

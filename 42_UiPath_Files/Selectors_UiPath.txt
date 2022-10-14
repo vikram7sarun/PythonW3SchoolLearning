@@ -1,0 +1,158 @@
+Selectors: - Used to find Identification of GUI elements.
+UI Explorer
+----------------------------------------
+Structure of Selectors:
+ Container1
+  Container2 
+    Container3
+	  Container4
+---------------------------------------
+Full Selector: - This will have First Node ,Last Node and Containers Inbetween. -
+                 Mainly Used when you switch between multiple application.
+				 Basic Recording Utilize the full selector.
+ eg: <html app='chrome.exe' title='Rpa Challenge' />
+     <webctrl css-selector='body' tag='BODY' />
+     <webctrl css-selector='body&gt;app-root' tag='APP-ROOT' />
+     <webctrl id='Jn4rC' tag='INPUT' /> 
+	 
+Partial Selector - Will Always Container AttachWindow - Used when we are staying in same application
+                  Desktop Recorder will utilize the partial selector.
+---------------------------------------
+Fine Tune Selectors: Using wilecard  * and ? we can fine tune
+* - For Multiple Character
+? - For Single Character
+
+Eg: file contains file_test32332,file_test32432,file_test32335  - we can use like "file_test*"
+repire will do the job automatically
+---------------------------------------
+Fine Tune Selectors with variable:
+ - Dynamically select the values in application with given variables.
+ - Use Read Range Activity to get data from excel   -- var - dt
+ - Use Attach with for partial selector 
+ - Use for look to get each row data                 item  dt
+ - Use Type into for sending the corresponding data  row("name").ToString
+---------------------------------------
+*******Fine Tune using Index: and get List of alligned strings**********************
+1) Use Attach Window
+2) While -> Condition - index <13
+            Body : get Text -> indicate element and change the value to varaible. 	
+			assign - index = index + 1 -> op
+			Write Line - op
+			
+<html app='chrome.exe' title='ACME System 1 - Work Items' />
+<webctrl tag='TABLE' />
+<webctrl isleaf='1' tag='TD' tableRow='{{variable1}}' idx='1' />			
+--------------------------------------
+Anchor Base Activity: - Using Anchor key we can able to find value
+auto   - Bottom of the continer will not work, If the position is near it is gonna pick nearest value.
+top    - bottom - left   - right  - OnTop
+--------------------------------------
+Relative Selectors in UI Path: - Selector of anchor and target element put together.
+- In UI Explorer first Select Indicate Element and get the selector and 
+- Tap Indicate Anchor for both selector
+- Finally remove id which is dynamic
+--------------------------------------
+Visual Tree Method for UI path Selector:
+Indiate a element and Selct a tree for approprate locator.
+--------------------------------------
+Find Childeren Activity - Open Browser -> 
+Find Childeren activity and indicate dropdown and store in varible which return list
+Use For Each loop to fetch
+and getAttribute
+--------------------------------------
+Select Item Activity - Incicate corresponding dropdown which will result all the list
+1)Given input with list {"","","","",""}
+2)Pass the op value to Select value for dynamic operation.
+-------------------------------------                                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

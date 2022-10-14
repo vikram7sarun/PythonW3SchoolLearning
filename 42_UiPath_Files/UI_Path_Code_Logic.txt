@@ -1,0 +1,178 @@
+Code Logic:
+-------------
+1.Invoke Another activity to do operation.
+------------------------------------------
+2.Get index from given string array
+	arrayOfObjects = {"Pen","Mobile","Pencil","Charger","Key"} -> var ObjName
+for->	item=ObjName
+	Array.IndexOf(arrayOfObjects,item)
+------------------------------------------
+3.Show Expire Date if it is on next 7 days.
+   Read Range -> dt
+   for ->  assign -> ed = Convert.ToDateTime(row(1))
+   if ->   ed =Now.AddDays(5)
+-----------------------------------------
+4.Print 12 and 3 with + operator
+    assign -> c = a+b - Var Type -> GenericValue 
+	a+b
+	b+a
+	a = "1" b=2
+------------------------------------------
+5.Add Number into array
+  a = {1,2,3,4,5}	
+  String.Join(",",a)
+  a1 = a.Concat({6}).ToArray
+  String.Join(",",a1)
+------------------------------------------
+6. same as 5th
+------------------------------------------
+7. Print SUCCESS or FAILED with the given string using Switch
+   Get Input from user
+   Switch-> if(str.ToUpper.Contains("SUCCESS"),"SUCCESS",if(str.ToUpper.Contains("FAILED"),"FAILED","Default"))
+   SUCCESS -> msg Box
+   FAILED  -> msg Box
+   Default -> msg Box
+------------------------------------------
+8. Have listA = new List(of Int32) from{1,2}
+        AddToCollection  --> listB = 3
+        listB = new List(of Int32)
+		listC = listA.Concat(listB).ToList
+-------------------------------------------
+9. Create Dictionary   -> 
+   store Default data  -> New Dictionary(Of String,String) from {{"Vikram","Oct/31/1993"}}
+   add additional data -> assign -> BirthDayData("Sarun") = "Oct/10/1993"
+   print Entire Dict   -> String.Join(",",BirthDayData)
+   print only Keys     -> for -> item in BirthDayData.Keys
+   print only Values   -> for -> item in BirthDayData.Values
+ print values with key -> for -> item in BirthDayData.Keys
+                                      BirthDayData(item)   
+-------------------------------------------
+10. Change Default yaer "March/01/1991" to "March/01/2022" current Year.
+  assign -> ndob - DateTime.Parse(dob)
+  assign -> final- New DateTime(DateTime.Today.Year,ndob.Month,ndob.Day)
+-------------------------------------------
+11. Finding difference days between two dates:
+
+-------------------------------------------
+12.Create List of String : Names - New List(Of String) from {"Sarun","Anith","Zayn","Duce"} and display top 3 asc and dec order.
+Invoke Method - null, Names , Sort     ---> message box - String.join(",",Names.getRange(0,3))
+Invoke Method - null, Names , Reverse  ---> message box - String.join(",",Names.getRange(0,3))
+-------------------------------------------
+13. String.Format -- String.Format("My name is {1} and my age is {0}.","Vikram",27)  
+op - My name is Vikram and my age is 27.
+-------------------------------------------
+14. In Dictionary - Keys cannot be duplicate .values can have duplicates. 
+-------------------------------------------
+15. Important - Count the same author written No of Books - 
+dict  = New Dictionary(Of String,String)from {{"Book1","AuthorA"},{"Book2","AuthorB"},{"Book3","AuthorC"},{"Book4","AuthorA"},{"Book5","AuthorC"}}
+count = New Dictionary(Of String,int32)
+For Each
+  item in dict
+    if count.Containskey(item)
+        count(item) = count(item)+1
+	else -> Add to Dictionary
+	    dictionary - count
+		key        - item
+		Value      - 1
+message box - count
+------------------------------------------	    
+16. get the input from use and show message.
+"Hi "+fn+" "+ln+" thank you for applying the job. your Interview is Scheduled on "+id+"."	
+
+assign -> DateFormat = DateTime.parse(id)
+          MessageFormat = MessageFormat.Replace("<fn>",fn)
+          MessageFormat = MessageFormat.Replace("<ln>",ln)
+------------------------------------------
+17. String s = "Welcome to Expohub" - Extract Expohub from the string
+s.Substring(s.LastIndexOf(" ")+1)
+------------------------------------------
+18. String s = "Welcome to Expohub, this@expohub.com is the sample email address" - Extract this@expohub.com from the string
+s.Substring(s.IndexOf(",")+2,s.IndexOf("@")-8)
+------------------------------------------
+19.
+
+-----------------------------------------
+20.How to pull only column names from table
+1) Create Excel data only with column.
+2) Readrange -> dt
+3) for each -> item in dt.Columns -> type object
+4) item.ToString
+----------------------------------------- 
+21.Get Count of vowels in a string:
+1) Create String =  "dsgtsarunvikram"
+2) Create Matches -> ([aeiou]) for Vowels  ([a-z-[aeiou]])  -- ([a-z-[aeiou]]) for Constant
+3) For each -> counter = count +1
+-----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

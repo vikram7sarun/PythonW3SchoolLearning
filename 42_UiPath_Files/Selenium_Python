@@ -1,0 +1,137 @@
+
+______Selenium Python_________
+
+
+Chrome Version 105.0.5195.127
+ChromeDriver 105.0.5195.52
+Latest - ChromeDriver 106.0.5249.21
+
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+driver.maximize_window()
+driver.get("https://www.google.com/") 
+
+driver.find_element(By.XPATH, "//input[@title='Search']").send_keys("Python")
+element.send_keys(" and some", Keys.ARROW_DOWN)
+time.sleep(3)  
+
+driver.delete_all_cookies()  
+driver.close()  
+
+
+action = ActionChains(driver)
+action.move_to_element(menu).click(hidden_submenu).perform()
+
+Action Chains Basics
+click
+click_and_hold
+context_click
+double_click
+drag_and_drop
+key_down
+key_up
+move_by_offset
+move_to_element
+move_to_element_with_offset
+release
+reset_actions
+send_keys
+
+Locators:
+
+find_element_by_id()
+find_element_by_name()
+find_element_by_xpath()
+find_element_by_link_text()
+find_element_by_partial_link_text()
+find_element_by_tag_name()
+find_element_by_class_name()
+find_element_by_css_selector()
+
+
+Wait:
+
+driver.implicitly_wait(10)
+element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, "myDynamicElement"))
+
+Exceptions:
+
+Exception	 								Description
+ElementClickInterceptedException	The Element Click command could not be completed because the element receiving the events is obscuring the element that was requested clicked.
+ElementNotInteractableException		Thrown when an element is present in the DOM but interactions with that element will hit another element do to paint order
+ElementNotSelectableException		Thrown when trying to select an unselectable element.
+ElementNotVisibleException			Thrown when an element is present on the DOM, but it is not visible, and so is not able to be interacted with.
+ErrorInResponseException			Thrown when an error has occurred on the server side.
+ImeActivationFailedException		Thrown when activating an IME engine has failed.
+ImeNotAvailableException			Thrown when IME support is not available.
+InsecureCertificateException		Navigation caused the user agent to hit a certificate warning, which is usually the result of an expired or invalid TLS certificate.
+InvalidArgumentException			The arguments passed to a command are either invalid or malformed.
+InvalidCookieDomainException		Thrown when attempting to add a cookie under a different domain than the current URL.
+InvalidCoordinatesException			The coordinates provided to an interactions operation are invalid.
+InvalidElementStateException		Thrown when a command could not be completed because the element is in an invalid state.
+InvalidSelectorException			Thrown when the selector which is used to find an element does not return a WebElement.
+InvalidSessionIdException			Occurs if the given session id is not in the list of active sessions, meaning the session either does not exist or that it’s not active.
+InvalidSwitchToTargetException		Thrown when frame or window target to be switched doesn’t exist.
+MoveTargetOutOfBoundsException		Thrown when the target provided to the ActionsChains move() method is invalid, i.e. out of document.
+NoAlertPresentException				Thrown when switching to no presented alert.
+NoSuchAttributeException			Thrown when the attribute of element could not be found.
+NoSuchCookieException				No cookie matching the given path name was found amongst the associated cookies of the current browsing context’s active document.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
