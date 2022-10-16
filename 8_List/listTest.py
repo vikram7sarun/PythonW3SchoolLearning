@@ -4,6 +4,9 @@
 # If you add new items to a list, the new items will be placed at the end of the list.
 # The list is changeable, meaning that we can change, add, and remove items in a list after it has been created.
 # Since lists are indexed, lists can have items with the same value:
+# Python list memory allocation is 0,4,8,16,25,35,46....
+
+
 
 thislist = ["apple", "banana", "cherry"]
 print(thislist)

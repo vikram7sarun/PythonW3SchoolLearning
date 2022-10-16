@@ -12,8 +12,9 @@ print(thislist)
 del thislist[0]
 print(thislist)
 
-# thislist = ["apple", "banana", "cherry"]
-# del thislist
+thislist1 = ["apple", "banana", "cherry"]
+thislist1.clear()
+# del thislist1
 
-thislist.clear()
-print(thislist)
+
+print(thislist1)
