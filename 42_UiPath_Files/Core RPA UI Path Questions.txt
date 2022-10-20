@@ -36,12 +36,12 @@
 6. Different ways the project can be built in Uipath:
   1)Sequence 2)Flowchart 3)Statemachine 4)ReFramework
 ----------------------------------------------
-7. Vesrion on Uipath You worked on?
+7. Version on Uipath You worked on?
   Studio -> 2021.10.4 , 2020.10.2 ,2020.4.1 , 2019.10.1
 ----------------------------------------------
 8. Different types of variables and arguments:
-  Mostly used - String, Int32, Boolean, Genericv Value , array, data type,List,Dictionary etc.
-3 Directions in argunments:
+  Mostly used - String, Int32, Boolean, Generic Value , array, data type,List,Dictionary etc.
+3 Directions in arguments:
  - IN , OUT , IN-OUT
 ---------------------------------------------- 
 9. Different between Array and List:
@@ -71,7 +71,7 @@ Can be handled using:
 14.Step Into - Used in Debug mode - use to step in to particualr workflow and see one by one.
    Step Over - Will not Get into  any workflow
 ----------------------------------------------
-15. Try  - Holdes the activity that could throw the exception.
+15. Try  - Holds the activity that could throw the exception.
   Catch  - Specifies the exception type and optionally holds an activity that inform the user about found exception. 
  Finally - Executed as always neither error occured or not
 ----------------------------------------------
