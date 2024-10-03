@@ -8,7 +8,7 @@
 # None Type:	NoneType
 
 #-------------------------------------------------
-r = range(2,10,2)
+r = range(3,10,3)
 
 for i in r:
     print(i)

@@ -3,8 +3,7 @@ print(a.upper())
 print(a.lower())
 print(a.strip())
 print(a.replace("h", "J"))
-print(a.split(","))
-
+print(a.split(","))   #Split into List [' hello', ' World!']
 print(a.capitalize())
 print(a.casefold())
 print(a.count('l'))

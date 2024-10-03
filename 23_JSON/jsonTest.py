@@ -40,7 +40,7 @@ import json
 
 import json
 
-j = x =  '{ "name":"John", "age":30, "city":"New York","cars":[{"model":"BMW","mpg":25},{"model":"AUDI","mpg":20}]}'
+j =  '{ "name":"John", "age":30, "city":"New York","cars":[{"model":"BMW","mpg":25},{"model":"AUDI","mpg":20}]}'
 
 op = json.loads(j)
 

@@ -17,5 +17,5 @@ print(thislist)
 
 # Temporary Sort
 
-print(sorted(thislist))
-print(thislist)
+#print(sorted(thislist))
+#print(thislist)

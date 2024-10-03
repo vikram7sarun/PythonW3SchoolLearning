@@ -76,6 +76,6 @@ print(type(c))
 
 import random
 
-print(random.randrange(1000,9999))
+print(random.randrange(100000,999999))
 
 # ---------------------------------------------------
