@@ -15,3 +15,9 @@ logger.info("This is info message")
 logger.warning("This is warning message")
 logger.error("This is error message")
 logger.critical("This is critical message")
+
+
+
+
+
+
