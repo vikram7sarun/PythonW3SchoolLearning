@@ -55,3 +55,5 @@ elements = [1, 2, 3]
 permutations = generate_permutations(elements)
 
 print(permutations)
+
+list1 = [1, 2, 3]

@@ -8,7 +8,7 @@ def bubble_sort(list1):
                 list1[j+1] = temp
     return list1
 
-list1 = [6,3,8,9,7,2]
+list1 = [6,3,8,9,7,2,4,1]
 List2 = []
 print("Before Sorting : ",list1)
 list2 = bubble_sort(list1)

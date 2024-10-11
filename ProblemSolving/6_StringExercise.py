@@ -99,3 +99,45 @@ temp_str = str1.lower()
 # use count function
 count = temp_str.count(sub_string.lower())
 print("The USA count is:", count)
+
+
+s1 = "Bangalore"
+s2 = "Delhi"
+
+
+fl = s1[0]
+f2 = s2[0]
+
+ll = s1[-1]
+l2 = s2[-1]
+
+m1 = s1//2
+m2 = 32//2
+
+print()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
