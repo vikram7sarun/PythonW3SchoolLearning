@@ -1,0 +1,160 @@
+Selenium:
+
+1.What is Remote WebDriver?
+
+    To use the remote WebDriver, you should have the Selenium server running. To run the server, use this command:
+    java -jar selenium-server-standalone-2.x.x.jar
+    While running the Selenium server, you could see a message looking like this:
+    RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+
+2.What are the Different Type of Locators?
+
+    from selenium.webdriver.common.by import By
+
+    find_element(By.ID, "id")
+    find_element(By.NAME, "name")
+    find_element(By.XPATH, "xpath")
+    find_element(By.LINK_TEXT, "link text")
+    find_element(By.PARTIAL_LINK_TEXT, "partial link text")
+    find_element(By.TAG_NAME, "tag name")
+    find_element(By.CLASS_NAME, "class name")
+    find_element(By.CSS_SELECTOR, "css selector")
+
+3.Use of Select In Selenium? and Different ways of selecting Element? -- drop down
+
+    from selenium.webdriver.support.ui import Select
+    select = Select(driver.find_element(By.NAME, 'name'))
+    select.select_by_index(index)
+    select.select_by_visible_text("text")
+    select.select_by_value(value)
+
+4.How you will achieve drag and drop in Selenium?
+
+    element = driver.find_element(By.NAME, "source")
+    target = driver.find_element(By.NAME, "target")
+
+    from selenium.webdriver import ActionChains
+    action_chains = ActionChains(driver)
+    action_chains.drag_and_drop(element, target).perform()
+
+5.Moving between windows and frames?
+    driver.switch_to.window("windowName")
+    driver.switch_to.frame("frameName")
+    driver.switch_to.frame("frameName.0.child") -> access subframes by separating the path with a dot
+    driver.switch_to.default_content()
+
+6. How will you handle Popup?
+
+   alert = driver.switch_to.alert
+
+7. Difference between Implicit Waits and Explicit Waits?
+
+   IW -> driver.implicitly_wait(10)
+   EW -> wait = WebDriverWait(driver, 10)
+         element = wait.until(EC.element_to_be_clickable((By.ID, 'someid')))
+
+   Expected Conditions
+        title_is
+        title_contains
+        presence_of_element_located
+        visibility_of_element_located
+        visibility_of
+        presence_of_all_elements_located
+        text_to_be_present_in_element
+        text_to_be_present_in_element_value
+        frame_to_be_available_and_switch_to_it
+        invisibility_of_element_located
+        element_to_be_clickable
+        staleness_of
+        element_to_be_selected
+        element_located_to_be_selected
+        element_selection_state_to_be
+        element_located_selection_state_to_be
+        alert_is_present
+
+8.  Advantage of Page Object Model?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

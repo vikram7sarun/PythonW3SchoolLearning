@@ -1,4 +1,4 @@
-str = "ababcdsafaabbfff"
+str = "S@yn243sh4g5&$$^&@@at&#i5vaae"
 str = str.replace(" ","")
 
 dict = {}
@@ -12,3 +12,14 @@ for i in str:
         dict[i] = 1
 
 print(dict)
+
+#---------------------------------------------------
+
+Str1 = "S@yn243sh4g5&$$^&@@at&#i5vaae"
+
+str_d = {}
+
+for i in Str1:
+    val = Str1.count(i)
+    str_d[i] = val
+print(str_d)

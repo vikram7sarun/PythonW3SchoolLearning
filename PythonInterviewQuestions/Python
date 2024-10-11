@@ -1,0 +1,68 @@
+Python:
+
+1.Difference Between List and Tuple?  Real time example?
+
+   LIST:
+     - List items are ordered, changeable, and allow duplicate values.
+     - List items are indexed, the first item has index [0], the second item has index [1] etc
+     - If you add new items to a list, the new items will be placed at the end of the list.
+     - The list is changeable, meaning that we can change, add, and remove items in a list after it has been created.
+
+
+   TUPLE:
+
+     - Tuple is a collection which is ordered and unchangeable.
+     - Tuples are written with round brackets.
+     - When we say that tuples are ordered, it means that the items have a defined order, and that order will not change.
+     - Tuples are unchangeable, meaning that we cannot change, add or remove items after the tuple has been created.
+
+2. List Methods?
+
+    append()	Adds an element at the end of the list
+    clear()	    Removes all the elements from the list
+    copy()	    Returns a copy of the list
+    count()     Returns the number of elements with the specified value
+    extend()	Add the elements of a list (or any iterable), to the end of the current list
+    index()	    Returns the index of the first element with the specified value
+    insert()	Adds an element at the specified position
+    pop()	    Removes the element at the specified position
+    remove()	Removes the item with the specified value
+    reverse()	Reverses the order of the list
+    sort()	    Sorts the list
+
+3. Difference between Append and Insert?
+       append()	Adds an element at the end of the list
+       insert()	Adds an element at the specified position
+
+4. Tuple Menthod?
+
+   count()	Returns the number of times a specified value occurs in a tuple
+   index()	Searches the tuple for a specified value and returns the position of where it was found
+
+5. Set?
+    A set is a collection which is unordered, unchangeable*, and unindexed.
+    * Note: Set items are unchangeable, but you can remove items and add new items.
+
+6. Dictionary Methods?
+    clear()	Removes all the elements from the dictionary
+    copy()	Returns a copy of the dictionary
+    fromkeys()	Returns a dictionary with the specified keys and value
+    get()	Returns the value of the specified key
+    items()	Returns a list containing a tuple for each key value pair
+    keys()	Returns a list containing the dictionary's keys
+    pop()	Removes the element with the specified key
+    popitem()	Removes the last inserted key-value pair
+    setdefault()	Returns the value of the specified key. If the key does not exist: insert the key, with the specified value
+    update()	Updates the dictionary with the specified key-value pairs
+    values()	Returns a list of all the values in the dictionary
+
+7. Numpy , Pandas and matplotlib?
+
+8. What is Data Frame?
+     A Pandas DataFrame is a 2 dimensional data structure, like a 2 dimensional array, or a table with rows and columns.
+
+9. When to use closures?
+So what are closures good for?
+Closures can be used to avoid global values and provide data hiding, and can be an elegant solution for simple cases with one or few methods.
+However, for larger cases with multiple attributes and methods, a class implementation may be more appropriate.
+

@@ -1,6 +1,7 @@
 def myfunc():
-  x = 300
-  print(x)
+    x = 300
+    print(x)
+
 
 myfunc()
 
@@ -8,10 +9,13 @@ myfunc()
 # Function Inside Function
 
 def myfunc():
-  x = 500
-  def myinnerfunc():
-    print(x)
-  myinnerfunc()
+    x = 500
+
+    def myinnerfunc():
+        print(x)
+
+    myinnerfunc()
+
 
 myfunc()
 
@@ -21,17 +25,23 @@ myfunc()
 
 x = 300
 
+
 def myfunc():
-  print(x)
+    print(x)
+
 
 myfunc()
 
 print(x)
 
+
 def myfunc():
-  global x
-  x = 900
+    global x
+    x = 900
+
 
 myfunc()
 
 print(x)
+
+# Closure is a function having access to the scope of its parent function after the parent function has returned.
