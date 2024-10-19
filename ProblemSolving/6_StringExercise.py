@@ -57,8 +57,8 @@ def mix_string(s1, s2):
     print("Mix String is ", res)
 
 
-s1 = "Bangalore"
-s2 = "Delhi"
+s1 = "Argentina"
+s2 = "Belgium"
 mix_string(s1, s2)
 
 
@@ -117,6 +117,8 @@ m2 = 32//2
 print()
 
 
+
+# ---------------------
 
 
 

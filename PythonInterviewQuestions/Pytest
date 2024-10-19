@@ -1,3 +1,42 @@
+
+
+-------------------------------
+1. What is Fixtures?
+2. What is Conftest?
+3. How to use dependency in pytest? -> Using Pytest dependency marker.
+4. What is finalizer and how to use inside the fixture?
+     class Test1:
+        @pytest.fixture(Scope='c', autouse=True)
+        def myFixture(self, request)
+            print("My Fixture is called")
+
+            def teardown():
+                print("teardown method is called")
+            request.addfinalizer(teardown)
+
+5.How to call fixture from a text method?
+    - By Passing fixture name as the argument of the test method.
+6.How to use fixture inside another fixture?
+   - By having one fixture name inside another fixture argument.
+7.How to do parameterization in the pytest framework?
+   - By using parametrize marker
+      @pytest.mark,parameterize("geometry",["test1","test2","test3"])
+      def test_method1(self,geometry):
+            print("Value is {}".format(geometry))
+
+
+
+-------------------------------
+
+
+
+
+
+
+
+
+
+
 Higher-scoped fixtures are executed first
 Within a function request for fixtures, those of higher-scopes (such as session) are executed before lower-scoped fixtures (such as function or class).
 

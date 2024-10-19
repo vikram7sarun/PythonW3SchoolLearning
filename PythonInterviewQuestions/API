@@ -14,7 +14,7 @@
 
 3.  ExplainEach Part?
 
-    http://www.domain.com:2288/path/to/resource?a=b&x=y
+    http://www.domain.com:2288/path/to/main?a=b&x=y
 
     http:             -> Protocol
     www.domain.com:   -> Host
