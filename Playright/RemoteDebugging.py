@@ -17,7 +17,7 @@ with sync_playwright() as playwright:
     page.goto("https://acme-test.uipath.com/")
 
     page.is_visible('div.container')
-    html = page.inner_html('container')
+    html = page.inner_html('#container')
     soup = BeautifulSoup(html, 'html.parser')
     print(soup)
 
