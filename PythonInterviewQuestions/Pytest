@@ -24,6 +24,18 @@
       def test_method1(self,geometry):
             print("Value is {}".format(geometry))
 
+8.Pytest Fixture Scope Levels
+ Fixture scopes in Pytest control the lifetime of fixtures. They define how often a fixture gets created and destroyed.
+
+ Pytest provides four levels of fixture scopes:
+
+    Function (Set up and tear down once for each test function)
+    Class (Set up and tear down once for each test class)
+    Module (Set up and tear down once for each test module/file)
+    Session (Set up and tear down once for each test session i.e comprising one or more test files)
+    Fixture scopes control how often a fixture is set up and tear down.
+
+The default scope is function, which means that the fixture is set up and tear down for each test function that uses it.
 
 
 -------------------------------
