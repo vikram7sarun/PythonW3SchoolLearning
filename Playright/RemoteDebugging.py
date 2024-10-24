@@ -1,4 +1,5 @@
-#chrome.exe --remote-debugging-port=9214 --no-first-run --no-default-browser-check --user-data-dir="C:\ChromeData"
+#cd C:\Program Files\Google\Chrome\Application
+#C:\Program Files\Google\Chrome\Application\chrome.exe --remote-debugging-port=9214 --no-first-run --no-default-browser-check --user-data-dir="C:\ChromeData"
 
 # Import the sync_playwright function from the sync_api module of Playwright.
 from playwright.sync_api import sync_playwright
@@ -16,8 +17,9 @@ with sync_playwright() as playwright:
 
     page.goto("https://acme-test.uipath.com/")
 
-    page.is_visible('div.container')
-    html = page.inner_html('#container')
+    # page.is_visible('div.main-container')
+    html = page.inner_html('#main-container')
+    print(html)
     soup = BeautifulSoup(html, 'html.parser')
     print(soup)
 
