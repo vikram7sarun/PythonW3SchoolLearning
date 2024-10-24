@@ -21,5 +21,5 @@ with sync_playwright() as playwright:
     html = page.inner_html('#main-container')
     print(html)
     soup = BeautifulSoup(html, 'html.parser')
-    print("...",soup)
+    print("....",soup)
 
