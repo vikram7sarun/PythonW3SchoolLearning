@@ -19,3 +19,4 @@ actions = ActionChains(driver)
 actions.move_to_element(menu)
 actions.click(hidden_submenu)
 actions.perform()
+
