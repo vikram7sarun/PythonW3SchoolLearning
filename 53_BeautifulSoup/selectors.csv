@@ -1,0 +1,75 @@
+tag,attributes
+html,{'lang': 'en'}
+head,{}
+meta,{'charset': 'utf-8'}
+meta,"{'name': 'viewport', 'content': 'width=device-width, initial-scale=1'}"
+meta,"{'name': 'csrf-token', 'content': 'VAtyoEQroI2TBWm21fR0yBkLUoy4O9GM4xZ4XD4Y'}"
+link,"{'rel': ['icon'], 'type': 'image/png', 'href': 'https://acme-test.uipath.com/favicon.png'}"
+title,{}
+script,{'src': 'https://acme-test.uipath.com/js/jquery.min.js'}
+script,{'src': 'https://acme-test.uipath.com/js/tracking.js'}
+link,"{'rel': ['dns-prefetch'], 'href': '//fonts.gstatic.com'}"
+link,"{'href': 'https://fonts.googleapis.com/css?family=Nunito', 'rel': ['stylesheet']}"
+link,"{'href': 'https://acme-test.uipath.com/css/reset.css', 'rel': ['stylesheet']}"
+link,"{'href': 'https://acme-test.uipath.com/css/bootstrap.min.css', 'rel': ['stylesheet']}"
+link,"{'href': 'https://acme-test.uipath.com/css/bootstrap-select.min.css', 'rel': ['stylesheet']}"
+link,"{'href': 'https://acme-test.uipath.com/css/all.min.css', 'rel': ['stylesheet']}"
+link,"{'href': 'https://acme-test.uipath.com/css/style.css', 'rel': ['stylesheet']}"
+link,"{'href': 'https://acme-test.uipath.com/css/dashstyle.css', 'rel': ['stylesheet']}"
+script,"{'src': 'https://www.recaptcha.net/recaptcha/api.js?', 'async': '', 'defer': ''}"
+body,{}
+nav,"{'class': ['navbar', 'navbar-inverse', 'navbar-fixed-top'], 'role': 'navigation'}"
+div,{'class': ['container']}
+div,{'class': ['navbar-header']}
+button,"{'type': 'button', 'class': ['navbar-toggle'], 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1'}"
+span,{'class': ['sr-only']}
+span,{'class': ['icon-bar']}
+span,{'class': ['icon-bar']}
+span,{'class': ['icon-bar']}
+a,"{'class': ['navbar-brand'], 'href': '/'}"
+div,"{'class': ['collapse', 'navbar-collapse'], 'id': 'bs-example-navbar-collapse-1'}"
+ul,"{'class': ['nav', 'navbar-nav', 'navbar-right']}"
+li,{}
+a,{'href': '/'}
+li,{}
+a,{'href': 'https://acme-test.uipath.com/theme'}
+li,{}
+a,{'href': 'https://acme-test.uipath.com/login'}
+div,{'class': ['container']}
+div,{'class': ['row']}
+div,{'class': ['col-lg-12']}
+h1,{'class': ['page-header']}
+ol,{'class': ['breadcrumb']}
+li,{'class': ['breadcrumb-item']}
+a,{'href': 'https://acme-test.uipath.com/home'}
+li,"{'class': ['breadcrumb-item', 'active']}"
+div,{'class': ['main-container']}
+div,{'class': ['main-container']}
+div,{'class': ['row']}
+div,{'class': ['col-md-6']}
+h3,{}
+form,"{'method': 'POST', 'action': 'https://acme-test.uipath.com/login'}"
+input,"{'type': 'hidden', 'name': '_token', 'value': 'VAtyoEQroI2TBWm21fR0yBkLUoy4O9GM4xZ4XD4Y'}"
+div,"{'class': ['form-group', 'control-group']}"
+div,{'class': ['controls']}
+label,{'for': 'email'}
+input,"{'id': 'email', 'type': 'email', 'class': ['form-control'], 'name': 'email', 'value': '', 'required': '', 'autocomplete': 'email', 'autofocus': ''}"
+div,"{'class': ['control-group', 'form-group']}"
+div,{'class': ['controls']}
+label,{'for': 'password'}
+input,"{'id': 'password', 'type': 'password', 'class': ['form-control'], 'name': 'password', 'required': '', 'autocomplete': 'current-password'}"
+div,"{'class': ['control-group', 'form-group']}"
+div,"{'class': ['controls', 'form-check']}"
+input,"{'class': ['form-check-input'], 'type': 'checkbox', 'name': 'remember', 'id': 'remember'}"
+label,"{'class': ['form-check-label'], 'for': 'remember'}"
+button,"{'type': 'submit', 'class': ['btn', 'btn-primary']}"
+a,"{'class': ['btn', 'bg-warning'], 'href': 'https://acme-test.uipath.com/password/reset'}"
+a,"{'class': ['btn', 'bg-warning'], 'href': 'https://acme-test.uipath.com/register'}"
+footer,{}
+div,{'class': ['row']}
+div,{'class': ['col-lg-12']}
+hr,{}
+p,{}
+script,{}
+script,{'src': 'https://acme-test.uipath.com/js/bootstrap.min.js'}
+script,{'src': 'https://acme-test.uipath.com/js/bootstrap-select.min.js'}
