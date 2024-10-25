@@ -4,8 +4,11 @@
 from itertools import permutations
 
 
+perm = [1, 2, 3]
+
+
 # Get all permutations of [1, 2, 3]
-perm = permutations([1, 2, 3, 4])
+perm = permutations([1, 2, 3])
 
 # Print the obtained permutations
 for i in list(perm):
@@ -57,3 +60,73 @@ permutations = generate_permutations(elements)
 print(permutations)
 
 list1 = [1, 2, 3]
+
+
+#---------------------------------
+
+
+perm = [1, 2, 3]
+
+# Op:
+#
+# (1, 2, 3)
+# (1, 3, 2)
+# (2, 1, 3)
+# (2, 3, 1)
+# (3, 1, 2)
+# (3, 2, 1)
+
+
+def perm():
+    print("perm")
+
+    for i in range(3):
+        print(i)
+
+
+
+perm()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
