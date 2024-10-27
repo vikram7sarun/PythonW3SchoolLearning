@@ -66,3 +66,7 @@ So what are closures good for?
 Closures can be used to avoid global values and provide data hiding, and can be an elegant solution for simple cases with one or few methods.
 However, for larger cases with multiple attributes and methods, a class implementation may be more appropriate.
 
+10.Decorator?
+
+ # Decorator  = A function that extends the behaviour of the function w/0 modifying the base function
+# pass  the base function as an arguments to the decorator

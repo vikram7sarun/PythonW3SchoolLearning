@@ -1,5 +1,5 @@
 #cd C:\Program Files\Google\Chrome\Application
-#C:\Program Files\Google\Chrome\Application\chrome.exe --remote-debugging-port=9214 --no-first-run --no-default-browser-check --user-data-dir="C:\ChromeData"
+#chrome.exe --remote-debugging-port=9214 --no-first-run --no-default-browser-check --user-data-dir="C:\ChromeData"
 
 # Import the sync_playwright function from the sync_api module of Playwright.
 from playwright.sync_api import sync_playwright
