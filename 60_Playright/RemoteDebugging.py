@@ -17,9 +17,10 @@ with sync_playwright() as playwright:
 
     page.goto("https://acme-test.uipath.com/")
 
-    # page.is_visible('div.main-container')
-    html = page.inner_html('#main-container')
-    print(html)
-    soup = BeautifulSoup(html, 'html.parser')
-    print("....",soup)
+    # page = browser.pages[0]  # Access the active page
+
+    # Extract and print all selectors (or specific selectors as needed)
+    elements = page.query_selector_all("*")
+    for element in elements:
+        print(element.evaluate("element => element.outerHTML"))
 
