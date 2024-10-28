@@ -99,13 +99,9 @@ def move_selected_lines():
     try:
         # Capture selected text from output_text
         selected_text = output_text.get("sel.first", "sel.last")
-        print("Selected text to move:", selected_text)  # Debugging line
 
         # Insert selected text into moved_text area
         moved_text.insert(END, selected_text + "\n")
-
-        # Verify content of moved_text after insertion
-        print("Content in moved_text after moving:", moved_text.get("1.0", END))  # Debugging line
 
         # Optionally, remove selected text from output_text if desired
         output_text.delete("sel.first", "sel.last")
@@ -221,7 +217,17 @@ def save_to_file():
 
 # Set up the tkinter UI
 root = tk.Tk()
-root.title("Selector Fetcher")
+root.title("NessQ POM Creator")
+
+# Load and set the icon
+icon_path = "C:\\Vikram\\Codebase\\Python\\PythonW3SchoolLearning\\60_Playright\\Nessicon.png"  # Replace with your icon path
+root.iconphoto(False, tk.PhotoImage(file=icon_path))
+
+
+# Colors
+button_bg = "#dbe9f4"  # Light blue color for buttons
+entry_bg = "#f7f9fc"   # Very light grey for entry and text areas
+text_bg = "#e8eff5"    # Soft blue-grey for text areas
 
 # Configure grid layout to make text areas responsive
 root.columnconfigure(0, weight=1)
@@ -229,40 +235,41 @@ root.rowconfigure(2, weight=1)
 root.rowconfigure(4, weight=1)  # Make moved_text area also responsive
 
 # Create input label and entry box for selector priorities
-label = tk.Label(root, text="Enter Selector Priorities (comma-separated):")
+label = tk.Label(root, text="Enter Selector Priorities (comma-separated): \n ID, Name, ClassName, LinkText, "
+                            "PartialLinkText, TagName", bg="#f0f4f8", fg="#333333")
 label.grid(row=0, column=0, sticky="w", padx=10, pady=(10, 2))
 
-entry = tk.Entry(root, width=50)
+entry = tk.Entry(root, width=50, bg=entry_bg, fg="#333333", relief="solid")
 entry.grid(row=1, column=0, sticky="ew", padx=10, pady=(0, 5))
 
-fetch_button = tk.Button(root, text="Fetch Selectors", command=fetch_selectors)
+fetch_button = tk.Button(root, text="Fetch Selectors", command=fetch_selectors, bg=button_bg, relief="groove")
 fetch_button.grid(row=1, column=1, sticky="ew", padx=(0, 10), pady=(0, 5))
 
 # Main text area to display the output selectors
-output_text = scrolledtext.ScrolledText(root, width=60, height=10)
+output_text = scrolledtext.ScrolledText(root, width=60, height=10, bg=text_bg, fg="#333333", relief="solid")
 output_text.grid(row=2, column=0, columnspan=3, sticky="nsew", padx=10, pady=(5, 0))
 
 # Button to move selected lines
-move_button = tk.Button(root, text="Move Selected Lines", command=move_selected_lines)
+move_button = tk.Button(root, text="Move Selected Lines", command=move_selected_lines, bg=button_bg, relief="groove")
 move_button.grid(row=3, column=0, sticky="ew", padx=(10, 5), pady=5)
 
 # Entry box for the class name
-class_name_entry = tk.Entry(root, width=20, fg="grey")
+class_name_entry = tk.Entry(root, width=20, fg="grey", bg=entry_bg, relief="solid")
 class_name_entry.insert(0, "Enter Class Name")  # Set placeholder text
 class_name_entry.bind("<FocusIn>", on_entry_click)
 class_name_entry.bind("<FocusOut>", on_focusout)
 class_name_entry.grid(row=3, column=1, sticky="ew", padx=(5, 10), pady=5)
 
 # Button to generate POM
-generate_pom_button = tk.Button(root, text="Generate POM", command=generate_pom)
+generate_pom_button = tk.Button(root, text="Generate POM", command=generate_pom, bg=button_bg, relief="groove")
 generate_pom_button.grid(row=3, column=2, sticky="ew", padx=(5, 10), pady=5)
 
 # Second text area for moved selectors or generated POM
-moved_text = scrolledtext.ScrolledText(root, width=60, height=10)
+moved_text = scrolledtext.ScrolledText(root, width=70, height=10, bg=text_bg, fg="#333333", relief="solid")
 moved_text.grid(row=4, column=0, columnspan=3, sticky="nsew", padx=10, pady=(0, 10))
 
 # Button to download code
-download_button = tk.Button(root, text="Download Code", command=save_to_file)
+download_button = tk.Button(root, text="Download Code", command=save_to_file, bg=button_bg, relief="groove")
 download_button.grid(row=3, column=3, sticky="ew", padx=(5, 10), pady=5)
 
 
