@@ -1,10 +1,51 @@
+import os
 import tkinter as tk
 from tkinter import scrolledtext, END
-from playwright.sync_api import sync_playwright
 import re
 
+from playwright.async_api import PlaywrightContextManager
 
-# Helper function to build a selector based on priority
+
+# Define the generate_pom function as specified
+def generate_pom(page_name, elements):
+    pom_code = ""
+
+    # Write the imports for Selenium and other dependencies
+    pom_code += 'import logging\n'
+    pom_code += 'import time\n'
+    pom_code += 'import utilities.custom_logger as cl\n'
+    pom_code += 'from base.selenium_driver import Selenium_Driver\n\n'
+
+    pom_code += f'class {page_name.capitalize()}Page(Selenium_Driver):\n\n'
+
+    # Write main function
+    pom_code += '    if __name__ == "__main__":\n'
+    pom_code += '        log = cl.customLogger(logging.DEBUG)\n\n'
+
+    # Write the constructor for the Page Object
+    pom_code += f'    """Page Object for {page_name.capitalize()} page"""\n\n'
+    pom_code += '    def __init__(self, driver):\n'
+    pom_code += '        super().__init__(driver)\n'
+    pom_code += '        self.driver = driver\n\n\n'
+
+    pom_code += '    """locators"""\n\n'
+    for element in elements:
+        element_name = element['name']
+        locator_type = element['type']
+        locator_value = element['locator'].replace('"', "'")
+        pom_code += f'    __{element_name} = "{locator_value}"\n'
+    pom_code += '\n\n'
+
+    pom_code += '    """Functions"""\n\n'
+    for element in elements:
+        element_name = element['name']
+        pom_code += f'    def click_{element_name}(self):\n'
+        pom_code += f'        """Click the {element_name} element"""\n'
+        pom_code += f'        self.driver.find_element(*self.__{element_name}).click()\n\n'
+    pom_code += '\n\n'
+
+    return pom_code
+
 def get_priority_selector(element):
     try:
         element_id = element.evaluate("element => element.id")
@@ -38,7 +79,6 @@ def get_priority_selector(element):
     return None
 
 
-# Main function to retrieve selectors and display them in the text area
 def fetch_selectors():
     desired_priorities = entry.get().split(",")
     desired_priorities = [priority.strip() for priority in desired_priorities]
@@ -90,7 +130,8 @@ def fetch_selectors():
                 output_text.insert(END, f"\nNo selectors found for priority: {priority}\n")
 
         browser.close()
-
+def sync_playwright() -> PlaywrightContextManager:
+    return PlaywrightContextManager()
 
 # Function to move selected lines to the moved_text area
 def move_selected_lines():
@@ -99,66 +140,33 @@ def move_selected_lines():
     output_text.delete("sel.first", "sel.last")
 
 
-# Function to generate POM based on moved selectors in the specified format
-def generate_pom():
+# Function to parse the contents of moved_text and generate the POM
+def generate_pom_in_text_area():
     moved_text.delete(1.0, END)  # Clear the moved_text area before generating the POM
 
     # Retrieve the class name from the class_name_entry box
-    class_name = class_name_entry.get() or "TestPage"  # Default to "TestPage" if the entry is empty
+    page_name = class_name_entry.get() or "TestPage"  # Default to "TestPage" if the entry is empty
 
     # Collect selectors from the moved_text
     selectors = moved_text.get("1.0", END).strip().splitlines()
 
-    # Define initial code structure for the POM
-    pom_code = f"""import logging
-import time
-import utilities.custom_logger as cl
-from base.selenium_driver import Selenium_Driver
-
-class {class_name}(Selenium_Driver):
-
-    log = cl.customLogger(logging.DEBUG)
-
-    \"\"\"Page Object for {class_name}\"\"\"
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
-    # Locators
-"""
-
-    # Process selectors to generate locators and functions based on selector value
-    locator_definitions = ""
-    function_definitions = ""
-
+    # Prepare the elements list required for the POM function
+    elements = []
     for selector in selectors:
-        # Extract the text value within the selector using regex
         match = re.search(r"text\(\)='([^']+)'", selector)
-
-        # Check if regex successfully captured the text
         if match:
-            # Generate locator and function names based on the selector's text value
+            # Generate element details
             element_name = match.group(1).replace(" ", "_").replace(":", "").lower()
-            locator_name = f"__{element_name}"
-
-            # Add the locator definition
-            locator_definitions += f"    {locator_name} = \"{selector}\"\n"
-
-            # Define the function name and method for clicking the element
-            function_name = f"click_{element_name}_button"
-            function_definitions += f"\n    def {function_name}(self):\n"
-            function_definitions += f"        self.elementClick(self.{locator_name}, locatorType='xpath')\n"
+            element = {'name': element_name, 'type': 'xpath', 'locator': selector}
+            elements.append(element)
         else:
-            # Display unmatched selector in the POM to troubleshoot
-            locator_definitions += f"    # Unmatched selector format: {selector}\n"
+            # Display unmatched selector in the output to troubleshoot
+            moved_text.insert(END, f"# Unmatched selector format: {selector}\n")
 
-    # Add the locators and functions to the POM code
-    pom_code += locator_definitions
-    pom_code += "\n    # Functions\n"
-    pom_code += function_definitions
+    # Call the generate_pom function and get the POM code
+    pom_code = generate_pom(page_name, elements)
 
-    # Insert the generated POM code into the moved_text area
+    # Display the generated POM code in moved_text area
     moved_text.insert(END, pom_code)
 
 
@@ -194,7 +202,7 @@ class_name_entry = tk.Entry(root, width=20)
 class_name_entry.grid(row=3, column=1, sticky="ew", padx=(5, 10), pady=5)
 
 # Button to generate POM
-generate_pom_button = tk.Button(root, text="Generate POM", command=generate_pom)
+generate_pom_button = tk.Button(root, text="Generate POM", command=generate_pom_in_text_area)
 generate_pom_button.grid(row=3, column=2, sticky="ew", padx=(5, 10), pady=5)
 
 # Second text area for moved selectors or generated POM

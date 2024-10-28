@@ -1,104 +1,81 @@
-from playwright.sync_api import sync_playwright
-
-
-# Helper function to build a selector based on priority
-def get_priority_selector(element):
-    try:
-        # Check for ID
-        element_id = element.evaluate("element => element.id")
-        if element_id:
-            return f"//*[@id='{element_id}']"
-
-        # Check for Name attribute
-        name_attr = element.evaluate("element => element.getAttribute('name')")
-        if name_attr:
-            return f"//*[@name='{name_attr}']"
-
-        # Check for ClassName
-        class_attr = element.evaluate("element => element.className")
-        if class_attr:
-            class_name = " and ".join([f"contains(@class, '{cls}')" for cls in class_attr.split()])
-            return f"//*[{class_name}]"
-
-        # Check for LinkText (exact match for short text)
-        inner_text = element.evaluate("element => element.innerText").strip() if element.evaluate(
-            "element => element.innerText") else ""
-        if inner_text and len(inner_text) <= 10:
-            return f"//*[text()='{inner_text}']"
-
-        # Check for Partial LinkText (longer texts)
-        if inner_text and len(inner_text) > 10:
-            return f"//*[contains(text(), '{inner_text[:10]}')]"
-
-        # Use TagName if nothing else matches
-        tag_name = element.evaluate("element => element.tagName.toLowerCase()")
-        if tag_name:
-            return f"//{tag_name}"
-
-    except Exception as e:
-        print(f"Error generating selector for element: {e}")
-
-    # Return None if no match found
-    return None
-
-
-# Main script to iterate through elements and print unique selectors based on user input
-def main():
-    # Get user input for desired selector priorities
-    print("Enter the desired selector priorities (e.g., ID, Name, ClassName, LinkText, PartialLinkText, TagName):")
-    user_input = input("Priorities (comma-separated): ").split(",")
-    desired_priorities = [priority.strip() for priority in user_input]
-
-    with sync_playwright() as p:
-        browser = p.chromium.connect_over_cdp("http://localhost:9214")
-        default_context = browser.contexts[0]
-        page = default_context.pages[0]
-        page.wait_for_load_state("load")
-
-        # Dictionaries to store selectors based on their priority
-        selectors_by_priority = {
-            "ID": set(),
-            "Name": set(),
-            "ClassName": set(),
-            "LinkText": set(),
-            "PartialLinkText": set(),
-            "TagName": set(),
-        }
-
-        elements = page.query_selector_all("*")
-        for element in elements:
-            try:
-                selector = get_priority_selector(element)
-
-                # Classify selector based on priority
-                if selector:
-                    if "id=" in selector:
-                        selectors_by_priority["ID"].add(selector)
-                    elif "name=" in selector:
-                        selectors_by_priority["Name"].add(selector)
-                    elif "contains(@class," in selector:
-                        selectors_by_priority["ClassName"].add(selector)
-                    elif "text()=" in selector:
-                        selectors_by_priority["LinkText"].add(selector)
-                    elif "contains(text()," in selector:
-                        selectors_by_priority["PartialLinkText"].add(selector)
-                    elif selector.startswith("//"):
-                        selectors_by_priority["TagName"].add(selector)
-
-            except Exception as e:
-                print(f"Error processing element: {e}")
-
-        # Print selectors based on user-defined priorities
-        for priority in desired_priorities:
-            if priority in selectors_by_priority:
-                print(f"\n{priority} Selectors:")
-                for selector in selectors_by_priority[priority]:
-                    print(selector)
+def convert_selectors_to_dict(selectors):
+    elements = []
+    for selector in selectors:
+        # Determine the name based on the type of selector
+        if "@id='" in selector:
+            # Extract ID value
+            name_part = selector.split("@id='")[1].split("']")[0]
+            name = f"{name_part}_id"
+        elif "@name='" in selector:
+            # Extract name attribute
+            name_part = selector.split("@name='")[1].split("']")[0]
+            name = f"{name_part}_name"
+        elif "contains(@class," in selector:
+            # Extract class values for combined class selectors
+            classes = selector.split("contains(@class, '")
+            class_names = "_".join(cls.split("')")[0] for cls in classes[1:])
+            name = f"{class_names}_class"
+        elif "text()=" in selector or "contains(text()," in selector:
+            # Handle text-based selectors
+            if "text()=" in selector:
+                text_value = selector.split("text()='")[1].split("']")[0]
             else:
-                print(f"\nNo selectors found for priority: {priority}")
+                text_value = selector.split("contains(text(), '")[1].split("')")[0]
+            name = text_value.lower().replace(" ", "_").replace(":", "")
+        else:
+            name = "custom_selector"
 
-        browser.close()
+        # Add the selector dictionary to the elements list
+        elements.append({
+            'name': name,
+            'type': 'xpath',
+            'locator': selector
+        })
+    return elements
 
+# Example usage
+selectors = [
+    "//*[@id='password']",
+    "//*[@id='email']",
+    "//*[@id='remember']",
+    "//*[@id='bs-example-navbar-collapse-1']",
+    "//*[@name='_token']",
+    "//*[@name='csrf-token']",
+    "//*[@name='viewport']",
+    "//*[contains(@class, 'control-group') and contains(@class, 'form-group')]",
+    "//*[contains(@class, 'breadcrumb')]",
+    "//*[contains(@class, 'navbar-toggle')]",
+    "//*[contains(@class, 'row')]",
+    "//*[contains(@class, 'form-group') and contains(@class, 'control-group')]",
+    "//*[contains(@class, 'col-lg-12')]",
+    "//*[contains(@class, 'btn') and contains(@class, 'bg-warning')]",
+    "//*[contains(@class, 'sr-only')]",
+    "//*[contains(@class, 'navbar-brand')]",
+    "//*[contains(@class, 'navbar-header')]",
+    "//*[contains(@class, 'form-check-label')]",
+    "//*[contains(@class, 'controls')]",
+    "//*[contains(@class, 'btn') and contains(@class, 'btn-primary')]",
+    "//*[contains(@class, 'breadcrumb-item') and contains(@class, 'active')]",
+    "//*[contains(@class, 'col-md-6')]",
+    "//*[contains(@class, 'nav') and contains(@class, 'navbar-nav') and contains(@class, 'navbar-right')]",
+    "//*[contains(@class, 'breadcrumb-item')]",
+    "//*[contains(@class, 'container')]",
+    "//*[contains(@class, 'icon-bar')]",
+    "//*[contains(@class, 'controls') and contains(@class, 'form-check')]",
+    "//*[contains(@class, 'page-header')]",
+    "//*[contains(@class, 'navbar') and contains(@class, 'navbar-inverse') and contains(@class, 'navbar-fixed-top')]",
+    "//*[contains(@class, 'main-container')]",
+    "//*[text()='Log In']",
+    "//*[text()='Email:']",
+    "//*[text()='Password:']",
+    "//*[text()='Home']",
+    "//*[contains(text(), 'ACME Syste')]",
+    "//*[contains(text(), 'To continu')]",
+    "//*[contains(text(), 'Switch to ')]",
+    "//*[contains(text(), 'new Date()')]",
+    "//*[contains(text(), 'Email')]",
+    "//*[contains(text(), 'Copyright ')]"
+]
 
-if __name__ == "__main__":
-    main()
+elements = convert_selectors_to_dict(selectors)
+print(elements)

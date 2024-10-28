@@ -1,7 +1,9 @@
 import tkinter as tk
 from tkinter import scrolledtext, END
 from playwright.sync_api import sync_playwright
+from tkinter import scrolledtext, END, filedialog
 import re
+import os
 
 
 # Helper function to build a selector based on priority
@@ -94,28 +96,93 @@ def fetch_selectors():
 
 # Function to move selected lines to the moved_text area
 def move_selected_lines():
-    selected_text = output_text.get("sel.first", "sel.last")
-    moved_text.insert(END, selected_text + "\n")
-    output_text.delete("sel.first", "sel.last")
+    try:
+        # Capture selected text from output_text
+        selected_text = output_text.get("sel.first", "sel.last")
+        print("Selected text to move:", selected_text)  # Debugging line
+
+        # Insert selected text into moved_text area
+        moved_text.insert(END, selected_text + "\n")
+
+        # Verify content of moved_text after insertion
+        print("Content in moved_text after moving:", moved_text.get("1.0", END))  # Debugging line
+
+        # Optionally, remove selected text from output_text if desired
+        output_text.delete("sel.first", "sel.last")
+
+    except tk.TclError:
+        print("No text selected to move.")  # If no text is selected, an error will be caught here
 
 
-# Function to generate POM based on moved selectors in the specified format
+# Placeholder management functions for the class name entry
+def on_entry_click(event):
+    """Remove placeholder text when the entry is focused."""
+    if class_name_entry.get() == "Enter Class Name":
+        class_name_entry.delete(0, "end")  # Clear the placeholder text
+        class_name_entry.config(fg="black")  # Change text color to black
+
+def on_focusout(event):
+    """Restore placeholder text if the entry is empty."""
+    if class_name_entry.get() == "":
+        class_name_entry.insert(0, "Enter Class Name")  # Restore placeholder
+        class_name_entry.config(fg="grey")  # Set placeholder text color
+
+
+# Function to generate POM and display it in the moved_text area
 def generate_pom():
-    moved_text.delete(1.0, END)  # Clear the moved_text area before generating the POM
+
 
     # Retrieve the class name from the class_name_entry box
-    class_name = class_name_entry.get() or "TestPage"  # Default to "TestPage" if the entry is empty
+    class_name = class_name_entry.get() or "TestPage"
 
-    # Collect selectors from the moved_text
+    # Collect selectors from the moved_text and check content
     selectors = moved_text.get("1.0", END).strip().splitlines()
 
-    # Define initial code structure for the POM
+    # Debugging: Print the selectors list to verify it’s populated correctly
+    # print("Captured selectors:", selectors)
+
+    # Clear the moved_text area before generating the POM
+    moved_text.delete(1.0, END)
+
+    elements = []
+    for selector in selectors:
+        # Determine the name based on the type of selector
+        if "@id='" in selector:
+            # Extract ID value
+            name_part = selector.split("@id='")[1].split("']")[0]
+            name = f"{name_part}_id"
+        elif "@name='" in selector:
+            # Extract name attribute
+            name_part = selector.split("@name='")[1].split("']")[0]
+            name = f"{name_part}_name"
+        elif "contains(@class," in selector:
+            # Extract class values for combined class selectors
+            classes = selector.split("contains(@class, '")
+            class_names = "_".join(cls.split("')")[0] for cls in classes[1:])
+            name = f"{class_names}_class"
+        elif "text()=" in selector or "contains(text()," in selector:
+            # Handle text-based selectors
+            if "text()=" in selector:
+                text_value = selector.split("text()='")[1].split("']")[0]
+            else:
+                text_value = selector.split("contains(text(), '")[1].split("')")[0]
+            name = text_value.lower().replace(" ", "_").replace(":", "")
+        else:
+            name = "custom_selector"
+
+        elements.append({
+            'name': name,
+            'type': 'xpath',
+            'locator': selector
+        })
+
+    # Define the generated POM content
     pom_code = f"""import logging
 import time
 import utilities.custom_logger as cl
 from base.selenium_driver import Selenium_Driver
 
-class {class_name}(Selenium_Driver):
+class {class_name.capitalize()}Page(Selenium_Driver):
 
     log = cl.customLogger(logging.DEBUG)
 
@@ -127,39 +194,29 @@ class {class_name}(Selenium_Driver):
 
     # Locators
 """
+    for element in elements:
+        locator_name = f"__{element['name']}"
+        pom_code += f"    {locator_name} = \"{element['locator']}\"\n"
 
-    # Process selectors to generate locators and functions based on selector value
-    locator_definitions = ""
-    function_definitions = ""
-
-    for selector in selectors:
-        # Extract the text value within the selector using regex
-        match = re.search(r"text\(\)='([^']+)'", selector)
-
-        # Check if regex successfully captured the text
-        if match:
-            # Generate locator and function names based on the selector's text value
-            element_name = match.group(1).replace(" ", "_").replace(":", "").lower()
-            locator_name = f"__{element_name}"
-
-            # Add the locator definition
-            locator_definitions += f"    {locator_name} = \"{selector}\"\n"
-
-            # Define the function name and method for clicking the element
-            function_name = f"click_{element_name}_button"
-            function_definitions += f"\n    def {function_name}(self):\n"
-            function_definitions += f"        self.elementClick(self.{locator_name}, locatorType='xpath')\n"
-        else:
-            # Display unmatched selector in the POM to troubleshoot
-            locator_definitions += f"    # Unmatched selector format: {selector}\n"
-
-    # Add the locators and functions to the POM code
-    pom_code += locator_definitions
     pom_code += "\n    # Functions\n"
-    pom_code += function_definitions
+    for element in elements:
+        function_name = f"click_{element['name']}"
+        pom_code += f"\n    def {function_name}(self):\n"
+        pom_code += f"        self.elementClick(self.{locator_name}, locatorType='xpath')\n"
 
-    # Insert the generated POM code into the moved_text area
+    # Display the generated POM in moved_text
     moved_text.insert(END, pom_code)
+
+# Function to save the POM code in moved_text area to a .py file
+def save_to_file():
+    pom_code = moved_text.get("1.0", END)
+    if pom_code.strip():  # Ensure there's content to save
+        file_path = filedialog.asksaveasfilename(defaultextension=".py", filetypes=[("Python Files", "*.py")])
+        if file_path:
+            with open(file_path, "w") as file:
+                file.write(pom_code)
+            print(f"POM saved as {file_path}")
+
 
 
 # Set up the tkinter UI
@@ -190,7 +247,10 @@ move_button = tk.Button(root, text="Move Selected Lines", command=move_selected_
 move_button.grid(row=3, column=0, sticky="ew", padx=(10, 5), pady=5)
 
 # Entry box for the class name
-class_name_entry = tk.Entry(root, width=20)
+class_name_entry = tk.Entry(root, width=20, fg="grey")
+class_name_entry.insert(0, "Enter Class Name")  # Set placeholder text
+class_name_entry.bind("<FocusIn>", on_entry_click)
+class_name_entry.bind("<FocusOut>", on_focusout)
 class_name_entry.grid(row=3, column=1, sticky="ew", padx=(5, 10), pady=5)
 
 # Button to generate POM
@@ -200,5 +260,10 @@ generate_pom_button.grid(row=3, column=2, sticky="ew", padx=(5, 10), pady=5)
 # Second text area for moved selectors or generated POM
 moved_text = scrolledtext.ScrolledText(root, width=60, height=10)
 moved_text.grid(row=4, column=0, columnspan=3, sticky="nsew", padx=10, pady=(0, 10))
+
+# Button to download code
+download_button = tk.Button(root, text="Download Code", command=save_to_file)
+download_button.grid(row=3, column=3, sticky="ew", padx=(5, 10), pady=5)
+
 
 root.mainloop()

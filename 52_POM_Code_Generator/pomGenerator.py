@@ -54,17 +54,18 @@ def generate_pom(page_name, elements):
 
 
 # Example Usage of the Script
-
 if __name__ == '__main__':
     # Example user input
     page_name = input("Enter the page name (e.g., Login, Home, etc.): ")
 
     # Example list of web elements to be included in the POM
-    elements = [
-        {'name': 'username_field', 'type': 'id', 'locator': 'username'},
-        {'name': 'password_field', 'type': 'id', 'locator': 'password'},
-        {'name': 'login_button', 'type': 'xpath', 'locator': '//button[@type="submit"]'}
-    ]
+    elements = [{'name': 'home_text', 'type': 'xpath', 'locator': "//*[text()='Home']"},
+                {'name': 'password_text', 'type': 'xpath', 'locator': "//*[text()='Password:']"},
+                {'name': 'log_in_text', 'type': 'xpath', 'locator': "//*[text()='Log In']"},
+                {'name': 'email_text', 'type': 'xpath', 'locator': "//*[text()='Email:']"},
+                {'name': 'to_continu_text', 'type': 'xpath', 'locator': "//*[contains(text(), 'To continu')]"},
+                {'name': 'acme_syste_text', 'type': 'xpath', 'locator': "//*[contains(text(), 'ACME Syste')]"}]
+
 
     # Generate the POM code
     generate_pom(page_name, elements)
