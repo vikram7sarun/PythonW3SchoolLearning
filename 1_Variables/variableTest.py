@@ -22,13 +22,12 @@ print(z)
 
 #-------------------------------------------------
 
-x = 5
+a = 5
 y = "John"
-print(type(x))
+print(type(a))
 print(type(y))
 
 #-------------------------------------------------
-
 x, y, z = "Orange", "Banana", "Cherry"
 print(x)
 print(y)

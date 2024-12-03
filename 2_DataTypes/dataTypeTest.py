@@ -4,11 +4,11 @@
 # Mapping Type:	dict
 # Set Types:	set, frozenset
 # Boolean Type:	bool
-# Binary Types:	bytes, bytearray, memoryview
+# Binary Types:	bytes, bytearray, memory view
 # None Type:	NoneType
 
 #-------------------------------------------------
-r = range(3,10,3)
+r = range(1,5)
 
 for i in r:
     print(i)
