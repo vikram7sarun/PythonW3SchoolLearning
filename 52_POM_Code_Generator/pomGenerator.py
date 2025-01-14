@@ -7,7 +7,7 @@ def generate_pom(page_name, elements):
     if not os.path.exists('pom_pages'):
         os.makedirs('pom_pages')
 
-    # Define the filename for the POM
+    # Define the filename for the POMhttps://shootsandmore.shootproof.com/gallery/S113261
     filename = f'pom_pages/{page_name.lower()}_page.py'
 
     # Open the file for writing

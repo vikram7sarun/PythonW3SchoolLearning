@@ -2,7 +2,6 @@ import os
 import tkinter as tk
 from tkinter import scrolledtext, END
 import re
-
 from playwright.async_api import PlaywrightContextManager
 
 
@@ -138,7 +137,6 @@ def move_selected_lines():
     selected_text = output_text.get("sel.first", "sel.last")
     moved_text.insert(END, selected_text + "\n")
     output_text.delete("sel.first", "sel.last")
-
 
 # Function to parse the contents of moved_text and generate the POM
 def generate_pom_in_text_area():
